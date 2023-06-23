@@ -1,0 +1,121 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Liste Cours</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4>Liste de Cours</h4>
+
+                    </div>
+                    <div class="row" *ngIf="showMsg">
+                        <div class="col-md-12">
+                            <p class="alert alert-success">
+                                <strong>Suppression avec succès</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="tab-inn">
+
+                        <div class="app-search" style="width: 100%; display: flex;">
+
+                            <input class="sf-input" type="text" placeholder="Libellé" class="form-control"
+                                (keyup.enter)="onInputSearch($event)">
+
+                            <a><i class="fa fa-search"></i></a>
+                        </div>
+                        <ng-container *ngIf="cours.length>0;else ElseIf">
+                            <div class="table-responsive table-desi">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Libellé</th>
+                                            <th>Description</th>
+                                            <th>Groupe</th>
+                                            <th>Supprimer</th>
+                                            <th>Actions</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let Cours of cours; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td>{{Cours.libelle}}</td>
+                                            <td>{{Cours.description}}</td>
+                                            <td><a routerLink="/enseignant/dashboard/listCoursGroupes/{{Cours.id}}"
+                                                    style="background-color: #002147;margin-right: 10px;"
+                                                    class="label label-success">Liste</a>
+                                                <a routerLink="/enseignant/dashboard/affecterGroupeCours/{{Cours.id}}"
+                                                    style="background-color:#58b392"
+                                                    class="label label-success">Affecter</a>
+                                            </td>
+                                            <td>
+                                                <a data-toggle="modal" data-target="#modal15" (click)="onClick(Cours.id)" style="background-color: #f44336"
+                                                    class="label label-success">Supprimer</a>
+                                            </td>
+                                            <td><a (click)="downloadFile(Cours.fichier.id,Cours.fichier.file)"
+                                                    class="menu-active"><i style="width:30%;"
+                                                        class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                                                <a (click)="openFile(Cours.fichier.id)" class="menu-active"><i
+                                                        style="width:30%;" class="fa fa-eye" aria-hidden="true"></i></a>
+                                            </td>
+
+                                        </tr>
+
+                                        <!-- delete confirmation pop-up  -->
+                                        <div id="modal15" class="modal fade" role="dialog">
+                                            <div class="log-in-pop" style="width: 60%; height:40%; padding:5%">
+                                                <a #closeModal href="#" class="pop-close" data-dismiss="modal"><img
+                                                        src="assets/images/cancel.png" alt="" />
+                                                </a>
+                                                <h2 style="text-align: center; color: rgba(0, 0, 0, 0.934);">
+                                                    Supprimer Cours
+                                                </h2>
+                                                <h4 style="color: rgba(3, 3, 3, 0.873);">Êtes-vous sûr de vouloir
+                                                    supprimer cet cours ?
+                                                </h4> <br>
+
+
+                                                <div
+                                                    style="display: grid; grid-template-columns: auto auto; grid-gap: 50px;">
+                                                    <input (click)="cancel()" type="submit" value="Annuler"
+                                                        class="waves-effect waves-light log-in-btn"
+                                                        style="background-color: #002147;">
+                                                    <input (click)="deleteCours(idCours)" type="submit"
+                                                        value="Supprimer" class="waves-effect waves-light log-in-btn">
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </ng-container>
+                        <ng-template #ElseIf>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <h4 style="padding:1%">Aucun cours n'a été ajouté pour le moment...</h4>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

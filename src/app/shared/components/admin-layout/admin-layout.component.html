@@ -1,0 +1,397 @@
+<!--== MAIN CONTRAINER ==-->
+<div class="container-fluid sb1">
+    <div class="row">
+        <!--== LOGO ==-->
+        <div class="col-md-2 col-sm-3 col-xs-6 sb1-1">
+            <a href="#" class="btn-close-menu"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a href="#" class="atab-menu"><i class="fa fa-bars tab-menu" aria-hidden="true"></i></a>
+            <a routerLink="/" class="logo"><img style="padding-top:7%;" src="assets/images/logo1.png" alt="" />
+            </a>
+
+        </div>
+        <!--== SEARCH ==-->
+        <div class="col-md-6 col-sm-6 mob-hide">
+            <!-- <form class="app-search">
+                <input type="text" placeholder="Search..." class="form-control">
+                <a href="#"><i class="fa fa-search"></i></a>
+            </form> -->
+            <a data-toggle="modal" (click)="listeAnnees()" data-target="#modal1"
+                class='waves-effect  top-user-pro'>Année Scolaire: {{A.annee}}
+
+            </a>
+        </div>
+        <div id="modal1" class="modal fade" role="dialog">
+            <div class="log-in-pop">
+                <div class="log-in-pop-left">
+                    <h1>Année Scolaire</h1>
+                    <p>Attention!!! Si vous changer l'année scolaire
+                        <br>seules les informations enregistrées à cette année en question seront disponibles
+                    </p>
+                    <!-- <h4>Login with social media</h4> -->
+                    <!-- <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                        </li>
+                    </ul> -->
+                </div>
+                <div class="log-in-pop-right">
+                    <a #closeModal href="#" class="pop-close" data-dismiss="modal"><img src="assets/images/cancel.png"
+                            alt="" />
+                    </a>
+                    <h4>Année Scolaire</h4>
+
+                    <!--                        
+                            <div style="font-size:small" class="alert alert-danger" role="alert">
+                    Attention!!! Si vous changer l'Année Scolaire ,seules les informations enregistrées à cette année en question seront disponibles   </div>
+                        
+                    -->
+
+                    <form #anneeform="ngForm" class="s12" (ngSubmit)="changerAnnee()">
+                        <div class="row">
+                            <div class="input-field col s12">
+
+
+                                <select #annee="ngModel" id="annee" class="form-control" name="annee_id"
+                                    [(ngModel)]="A.id" required>
+                                    <option value="0" disabled selected> Année Scolaire
+                                    </option>
+                                    <option *ngFor="let annee of annees" [value]="annee.id">
+                                        {{annee.annee}} </option>
+                                </select>
+                                <div class="input-field col S12">
+                                    <strong *ngIf="annee.invalid && annee.touched" class="text-danger">
+                                        Veuillez remplir ce champs
+                                    </strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="input-field s4">
+                                <input type="submit" value="Changer" class="waves-effect waves-light log-in-btn">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--== NOTIFICATION ==-->
+        <div class="col-md-2 tab-hide">
+            <!-- <div class="top-not-cen">
+                <a class='waves-effect btn-noti' href="admin-all-enquiry.html" title="all enquiry messages"><i
+                        class="fa fa-commenting-o" aria-hidden="true"></i><span>5</span></a>
+                <a class='waves-effect btn-noti' href="admin-course-enquiry.html" title="course booking messages"><i
+                        class="fa fa-envelope-o" aria-hidden="true"></i><span>5</span></a>
+                <a class='waves-effect btn-noti' href="admin-admission-enquiry.html" title="admission enquiry"><i
+                        class="fa fa-tag" aria-hidden="true"></i><span>5</span></a>
+            </div> -->
+        </div>
+        <!-- <div class="col-md-6"> -->
+        <!-- Dropdown Trigger -->
+        <!-- <a class='waves-effect  top-user-pro' href='#' data-activates='top-menu'>Année Scolaire:2021-2022
+                   
+            </a> -->
+
+
+
+        <!-- </div> -->
+        <!--== MY ACCCOUNT ==-->
+        <div class="col-md-2 col-sm-3 col-xs-6">
+            <!-- Dropdown Trigger -->
+            <a class='waves-effect dropdown-button top-user-pro' href='#' data-activates='top-menu'><img
+                    src="assets/images/placeholder.jpg" alt="" />MonCompte <i class="fa fa-angle-down"
+                    aria-hidden="true"></i>
+            </a>
+
+            <!-- Dropdown Structure -->
+            <ul id='top-menu' class='dropdown-content top-menu-sty'>
+                <!-- <li><a href="admin-panel-setting.html" class="waves-effect"><i class="fa fa-cogs"
+                            aria-hidden="true"></i>Admin Setting</a>
+                </li> -->
+                <li class="divider"></li>
+                <li><a (click)="logout()" class="ho-dr-con-last waves-effect"><i class="fa fa-sign-in"
+                            aria-hidden="true"></i>
+                        Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--== BODY CONTNAINER ==-->
+<div class="container-fluid sb2">
+    <div class="row">
+        <div class="sb2-1">
+            <!--== USER INFO ==-->
+            <div class="sb2-12">
+                <ul>
+                    <li><img src="assets/images/placeholder.jpg" alt="">
+                    </li>
+                    <li *ngIf="user">
+                        <h5>
+                            {{user.name}}
+                            <span> Administrateur</span>
+                        </h5>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+            <!--== LEFT MENU ==-->
+            <div class="sb2-13">
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li><a routerLink="/admin" class="menu-active"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+                            Dashboard</a>
+                    </li>
+                    <!-- <li><a href="admin-setting.html"><i class="fa fa-cogs" aria-hidden="true"></i> Site Setting</a>
+                    </li> -->
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar"
+                                aria-hidden="true"></i> Année Scolaire</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterAnnee">Ajouter Année scolaire</a>
+                                </li>
+                                <li><a routerLink="listeAnnees">Liste Années scolaires</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars"
+                                aria-hidden="true"></i> Sessions Scolaires</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterSession">Ajouter Session </a>
+                                </li>
+                                <li><a routerLink="listeSessions">Liste Sessions </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-users"
+                                aria-hidden="true"></i> Élèves</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="listPreinscrit">Préinscription</a>
+                                </li>
+                                <li><a routerLink="ajouterEleve">Ajouter Élève</a>
+                                </li>
+                                <li><a routerLink="listEleves">Liste Élèves</a>
+                                </li>
+                                <li><a routerLink="listParents">Liste Parents</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user"
+                                aria-hidden="true"></i> Enseignant(e)s</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterEnseignant">Ajouter Enseignant(e)</a>
+                                </li>
+                                <li><a routerLink="listEnseignants">Liste Enseignant(e)s</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-graduation-cap"
+                                aria-hidden="true"></i>Niveaux</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterNiveau">Ajouter Niveau</a>
+                                </li>
+                                <li><a routerLink="listNiveaux">Liste Niveaux</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-users"
+                                aria-hidden="true"></i> Groupes</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterGroupe">Ajouter Groupe</a>
+                                </li>
+                                <li><a routerLink="listGroupes">Liste Groupes</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-book"
+                                aria-hidden="true"></i>Matières</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterMatiere">Ajouter Matière</a>
+                                </li>
+                                <li><a routerLink="listMatieres">Liste Matières</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars"
+                                aria-hidden="true"></i> Salles</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterSalle">Ajouter Salle</a></li>
+                                <li><a routerLink="listSalles">Liste Salles</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar"
+                                aria-hidden="true"></i> Emploi de temps</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterEmploiTemps">Ajouter Emploi</a></li>
+                                <li><a routerLink="ListeEmplois">Liste Emplois</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars"
+                                aria-hidden="true"></i> Punitions</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="punitions">Liste punitions</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-graduation-cap"
+                        aria-hidden="true"></i> Bulletins</a>
+                <div class="collapsible-body left-sub-menu">
+                    <ul>
+                        <li><a routerLink="ajouterBulletin">Ajouter Bulletin </a>
+                        </li>
+                        <li><a routerLink="listeBulletins">Liste Bulletins </a>
+                        </li>
+                    </ul>
+                </div>
+                  </li>
+
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar"
+                                aria-hidden="true"></i> Évènements</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a routerLink="ajouterEvent">Ajouter évènement</a>
+                                </li>
+                                <li><a routerLink="ListeEvents">Liste évènements</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                   
+
+
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-user"
+                                aria-hidden="true"></i> Users</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-user-all.html">All Users</a>
+                                </li>
+                                <li><a href="admin-user-add.html">Add New user</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bookmark-o"
+                                aria-hidden="true"></i>All Pages</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-page-all.html">Pages</a>
+                                </li>
+                                <li><a href="admin-page-add.html">Create New Page</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bars"
+                                aria-hidden="true"></i> Menu</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-main-menu.html">Main menu</a></li>
+                                <li><a href="admin-about-menu.html">About menu</a></li>
+                                <li><a href="admin-admission-menu.html">Admission menu</a></li>
+                                <li><a href="admin-all-menu.html">All page menu</a></li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- <li><a href="admin-slider.html"><i class="fa fa-image" aria-hidden="true"></i> Slider</a>
+                    </li> -->
+                    <!-- <li><a href="admin-quick-link.html"><i class="fa fa-external-link-square" aria-hidden="true"></i>
+                            Slider quick link</a>
+                    </li> -->
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-calendar"
+                                aria-hidden="true"></i> Events</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-event-all.html">All Events</a>
+                                </li>
+                                <li><a href="admin-event-add.html">Create New Events</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-bullhorn"
+                                aria-hidden="true"></i> Seminar</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-seminar-all.html">All Seminar</a>
+                                </li>
+                                <li><a href="admin-seminar-add.html">Create New Seminar</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-graduation-cap"
+                                aria-hidden="true"></i> Job Vacants</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-job-all.html">All Jobs</a>
+                                </li>
+                                <li><a href="admin-job-add.html">Create New Job</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-pencil"
+                                aria-hidden="true"></i> Exam time table</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-exam-all.html">All Exams</a></li>
+                                <li><a href="admin-exam-add.html">Add New Exam</a></li>
+                                <li><a href="admin-exam-group-all.html">All Groups</a></li>
+                                <li><a href="admin-exam-group-add.html">Create New Groups</a></li>
+                            </ul>
+                        </div>
+                    </li> -->
+                    <!-- 
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-commenting-o"
+                                aria-hidden="true"></i> Enquiry</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-all-enquiry.html">All Enquiry</a></li>
+                                <li><a href="admin-course-enquiry.html">Course Enquiry</a></li>
+                                <li><a href="admin-admission-enquiry.html">Admission Enquiry</a></li>
+                                <li><a href="admin-seminar-enquiry.html">Seminar Enquiry</a></li>
+                                <li><a href="admin-event-enquiry.html">Event Enquiry</a></li>
+                                <li><a href="admin-common-enquiry.html">Common Enquiry</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="javascript:void(0)" class="collapsible-header"><i class="fa fa-cloud-download"
+                                aria-hidden="true"></i> Import & Export</a>
+                        <div class="collapsible-body left-sub-menu">
+                            <ul>
+                                <li><a href="admin-export-data.html">Export all datas</a>
+                                </li>
+                                <li><a href="admin-import-data.html">Import all datas</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!--== BODY INNER CONTAINER ==-->
+        <router-outlet></router-outlet>
+    </div>
+</div>

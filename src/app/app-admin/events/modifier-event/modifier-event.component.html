@@ -1,0 +1,119 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Modifier Évènement</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Modifier Évènement</h4>
+                        
+                    </div>
+                    <div class="tab-inn">
+                        <form #eventForm="ngForm" (ngSubmit)="modifierEvent()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Évènement modifié avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row"
+                                *ngIf="MsgError== true && myBtnIdClicked== true">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input #box1="ngModel" type="text" name="libelle" class="validate" [(ngModel)]="event.libelle"
+                                        required>
+                                    <label *ngIf="!box1.value">Libellé</label>
+                                    <div class="input-field col 12">
+                                        <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input #box2="ngModel" type="text" name="dateNais" [(ngModel)]="event.date"
+                                        placeholder="Date de l'évènement" onfocus="(this.type='date')" required>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box2.invalid && box2.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input #box3="ngModel" type="text" name="heure_debut"
+                                        [(ngModel)]="event.heure_debut" class="validate" required>
+                                    <label *ngIf="!box3.value">Heure de début</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box3.invalid && box3.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box4="ngModel" type="text" name="heure_fin"
+                                        [(ngModel)]="event.heure_fin" class="validate" required>
+                                    <label *ngIf="!box4.value">Heure de fin</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box4.invalid && box4.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea #box5="ngModel" name="description" [(ngModel)]="event.description"
+                                        class="materialize-textarea" required></textarea>
+                                    <label *ngIf="!box4.value">Description :</label>
+                                    <div class="input-field col 12">
+                                        <strong *ngIf="box5.invalid && box5.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" (click)="myBtnClicked()" class="waves-button-input"></i>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

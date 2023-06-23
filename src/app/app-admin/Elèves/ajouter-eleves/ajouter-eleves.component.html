@@ -1,0 +1,388 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Ajouter Élève</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Ajouter Informations Élève</h4>
+                    </div>
+                    <div class="tab-inn">
+                        <form #eleveForm="ngForm" (ngSubmit)="ajouterEleve()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Élève ajouté(e) avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="MsgError== true && myBtnIdClicked== true">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input #box1="ngModel" pattern="[a-z A-Z]+$" type="text" name="nom"
+                                        [(ngModel)]="eleve.nom" class="validate" required>
+                                    <label *ngIf="!box1.value">Nom</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box2="ngModel" pattern="[a-z A-Z]+$" type="text" name="prenom"
+                                        [(ngModel)]="eleve.prenom" class="validate" required>
+                                    <label *ngIf="!box2.value" class="">Prénom</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box2.invalid && box2.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <label *ngIf="!sexe.value" for="sexe">Sexe</label>
+                                    <select #sexe="ngModel" id="sexe" class="form-control" name="sexe"
+                                        [(ngModel)]="eleve.sexe" required>
+
+                                        <option value="Homme">Homme</option>
+                                        <option value="Femme">Femme</option>
+                                    </select>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="sexe.invalid && sexe.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box3="ngModel" pattern="[a-z A-Z]+$" type="text" name="nationalite"
+                                        [(ngModel)]="eleve.nationalite" class="validate" required>
+                                    <label *ngIf="!box3.value">Nationalité</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box3.invalid && box3.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #dateNais="ngModel" type="text" name="dateNais" [(ngModel)]="eleve.dateNais"
+                                        placeholder="Date Naissance" onfocus="(this.type='date')" required>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="dateNais.invalid && dateNais.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box4="ngModel" type="text" name="lieuNais" [(ngModel)]="eleve.lieuNais"
+                                        class="validate" required>
+                                    <label *ngIf="!box4.value">Lieu Naissance</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box4.invalid && box4.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box5="ngModel" type="text" name="adresse" [(ngModel)]="eleve.adresse"
+                                        class="validate" required>
+                                    <label *ngIf="!box5.value">Adresse</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box5.invalid && box5.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box6="ngModel" pattern="[a-zA-Z0-9]+$" type="text" name="matricule"
+                                        [(ngModel)]="eleve.matricule" class="validate" required>
+                                    <label *ngIf="!box6.value">Matricule</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box6.invalid && box6.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <label *ngIf="!grp.value" for="grp">Groupe</label>
+                                    <select #grp="ngModel" id="grp" class="form-control" name="groupe_id"
+                                        [(ngModel)]="eleve.groupe_id" required>
+                                        <option *ngFor="let groupe of groupes" [value]="groupe.id">
+                                            {{groupe.niveau.libelle}} {{groupe.num}} </option>
+                                    </select>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="grp.invalid && grp.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box7="ngModel" pattern="[a-z A-Z]+$" type="text" name="usernameel"
+                                        [(ngModel)]="eleve.usernameel" class="validate" required>
+                                    <label *ngIf="!box7.value">Nom Compte Élève</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box7.invalid && box7.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box8="ngModel" email type="email" name="emailel" [(ngModel)]="eleve.emailel"
+                                        class="validate" required>
+                                    <label *ngIf="!box8.value">Email du Compte Élève </label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box8.invalid && box8.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #pwd="ngModel" type="password" name="passwordel"
+                                        [(ngModel)]="eleve.passwordel" class="validate" required>
+                                    <label *ngIf="!pwd.value">Mot de Passe</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="pwd.invalid && pwd.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="file-field input-field col s12">
+                                    <div class="btn admin-upload-btn">
+                                        <span>Image</span>
+                                        <input type="file" name="img" (change)="onFileSelected($event)">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Image Élève">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box9="ngModel" pattern="[a-z A-Z]+$" type="text" name="nomComplet_pere"
+                                        [(ngModel)]="eleve.nomComplet_pere" class="validate" required>
+                                    <label *ngIf="!box9.value">Nom_Complet Père</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box9.invalid && box9.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box10="ngModel" pattern="[a-z A-Z]+$" type="text" name="nomComplet_mere"
+                                        [(ngModel)]="eleve.nomComplet_mere" class="validate" required>
+                                    <label *ngIf="!box10.value">Nom_Complet Mère</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box10.invalid && box10.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box11="ngModel" pattern="[0-9]+$" type="text" name="cin_pere"
+                                        [(ngModel)]="eleve.cin_pere" class="validate" required>
+                                    <label *ngIf="!box11.value">CIN Père</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box11.invalid && box11.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box12="ngModel" pattern="[0-9]+$" type="text" name="cin_mere"
+                                        [(ngModel)]="eleve.cin_mere" class="validate" required>
+                                    <label *ngIf="!box12.value">CIN Mère</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box12.invalid && box12.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box13="ngModel" pattern="[+ 0-9]+$" type="text" name="tel_pere"
+                                        [(ngModel)]="eleve.tel_pere" class="validate" required>
+                                    <label *ngIf="!box13.value">Téléphone Père</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box13.invalid && box13.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box14="ngModel" pattern="[+ 0-9]+$" type="text" name="tel_mere"
+                                        [(ngModel)]="eleve.tel_mere" class="validate" required>
+                                    <label *ngIf="!box14.value">Téléphone Mère</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box14.invalid && box14.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input #box15="ngModel" type="text" name="fct_pere" [(ngModel)]="eleve.fct_pere"
+                                        class="validate" required>
+                                    <label *ngIf="!box15.value">Fonction Père</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box15.invalid && box15.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input #box16="ngModel" type="text" name="fct_mere" [(ngModel)]="eleve.fct_mere"
+                                        class="validate" required>
+                                    <label *ngIf="!box16.value">Fonction Mère</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box16.invalid && box16.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box17="ngModel" email type="email" name="email_pere"
+                                        [(ngModel)]="eleve.email_pere" class="validate" required>
+                                    <label *ngIf="!box17.value">Email père</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box17.invalid && box17.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box18="ngModel" email type="email" name="email_mere"
+                                        [(ngModel)]="eleve.email_mere" class="validate" required>
+                                    <label *ngIf="!box18.value">Email Mère</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box18.invalid && box18.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="input-field col s6">
+                                    <input #box19="ngModel" pattern="[a-z A-Z]+$" type="text" name="usernamep"
+                                        [(ngModel)]="eleve.usernamep" class="validate" required>
+                                    <label *ngIf="!box19.value">Nom du Compte</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box19.invalid && box19.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                                <div class="input-field col s6">
+                                    <input #box20="ngModel" email type="email" name="emailp" [(ngModel)]="eleve.emailp"
+                                        class="validate" required>
+                                    <label *ngIf="!box20.value">Email du Compte Parent</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box20.invalid && box20.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input #box21="ngModel" type="password" name="passwordp"
+                                        [(ngModel)]="eleve.passwordp" class="validate" required>
+                                    <label *ngIf="!box21.value">Mot de Passe</label>
+                                    <div class="input-field col 6">
+                                        <strong *ngIf="box21.invalid && box21.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" (click)="myBtnClicked()" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

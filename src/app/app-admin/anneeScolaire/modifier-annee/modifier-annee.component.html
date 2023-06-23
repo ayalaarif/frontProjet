@@ -1,0 +1,91 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Modifier Année Scolaire</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Modifier Année Scolaire</h4>
+                        
+                    </div>
+                    <div class="tab-inn">
+                        <form #anneeform="ngForm" (ngSubmit)="modifierAnnee()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Année scolaire modifiée avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row"
+                                *ngIf="MsgError== true && myBtnIdClicked== true">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input #box1="ngModel" type="text" name="annee" class="validate" [(ngModel)]="annee.annee"
+                                        required>
+                                    <label *ngIf="!box1.value">Année Scolaire Exemple:2020-2021</label>
+                                    <div class="input-field col 12">
+                                        <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                            <div class="input-field col s6">
+                                <input #datedebut="ngModel" type="text" name="datedebut" [(ngModel)]="annee.date_debut"
+                                    placeholder="Date Debut" onfocus="(this.type='date')" required>
+                                <div class="input-field col 6">
+                                    <strong *ngIf="datedebut.invalid && datedebut.touched" class="text-danger">
+                                        Veuillez remplir ce champs
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="input-field col s6">
+                                <input #datefin="ngModel" type="text" name="datefin" [(ngModel)]="annee.date_fin"
+                                    placeholder="Date Fin" onfocus="(this.type='date')" required>
+                                <div class="input-field col 6">
+                                    <strong *ngIf="datefin.invalid && datefin.touched" class="text-danger">
+                                        Veuillez remplir ce champs
+                                    </strong>
+                                </div>
+                            </div>
+                            </div>
+
+                            
+                           
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" (click)="myBtnClicked()" class="waves-button-input"></i>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

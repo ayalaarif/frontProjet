@@ -1,0 +1,101 @@
+<!--SECTION START-->
+<div class="stu-db">
+    <div class="container pg-inn">
+        <div class="col-md-3">
+            <div class="pro-user">
+                <img [src]="imageToShow" alt="Eleve" *ngIf="!isImageLoading; else noImageFound">
+                <ng-template #noImageFound>
+                    <img src="assets/images/Fallbackimage.jpg" style="width: 300px; height: 300px;" alt="Fallbackimage">
+                </ng-template>
+            </div>
+            <div class="pro-user-bio">
+                <ul>
+                    <li>
+                        <h4>{{eleve.nom}} {{eleve.prenom}}</h4>
+                    </li>
+                    <li>Matricule: {{eleve.matricule}}</li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="udb">
+
+                <div class="udb-sec udb-prof">
+                    <h4><img src="assets/images/icon/db1.png" alt="" /> Profile</h4>
+
+                    <div class="sdb-tabl-com sdb-pro-table">
+                        <table class="responsive-table bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Nom </td>
+                                    <td>:</td>
+                                    <td>{{eleve.nom}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Prénom </td>
+                                    <td>:</td>
+                                    <td> {{eleve.prenom}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>Sexe</td>
+                                    <td>:</td>
+                                    <td>{{eleve.sexe}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nationalité</td>
+                                    <td>:</td>
+                                    <td>{{eleve.nationalite}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td>Date Naissance</td>
+                                    <td>:</td>
+                                    <td>{{eleve.dateNais}}</td>
+                                </tr>
+                               
+                                <tr>
+                                    <td>Adresse</td>
+                                    <td>:</td>
+                                    <td>{{eleve.adresse}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>Matricule</td>
+                                    <td>:</td>
+                                    <td>{{eleve.matricule}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td>Groupe</td>
+                                    <td>:</td>
+                                    <td>{{eleve.groupes[0].niveau.libelle}} {{eleve.groupes[0].num}}</td>
+                                </tr>
+
+                                <!-- <tr>
+                                    <td>Nom du Compte </td>
+                                    <td>:</td>
+                                    <td>{{eleve.user.name}}</td>
+                                </tr> -->
+                                <tr>
+                                    <td>Email du Compte </td>
+                                    <td>:</td>
+                                    <td>{{eleve.user.email}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <div class="sdb-bot-edit">
+                            <!-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> -->
+                            <a routerLink="/eleve/modifierProfileEleve/{{eleve.id}}" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                    class="fa fa-pencil"></i> Modifier Profile</a>
+                            <a style="margin: 20px;" routerLink="/eleve/modifierProfileEleve/{{eleve.id}}" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                    class="fa fa-user"></i> Ajouter amis</a>
+                            <a style="margin: 1px;" routerLink="/eleve/modifierProfileEleve/{{eleve.id}}" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                    class="fa fa-comments"></i> Chatter</a>     
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--SECTION END-->

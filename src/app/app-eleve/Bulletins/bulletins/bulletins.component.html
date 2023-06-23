@@ -1,0 +1,111 @@
+<!--== User Details ==-->
+<div class="stu-db">
+    <div class="container pg-inn">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="udb-sec udb-cour-stat">
+                        <h4><img src="assets/images/icon/db5.png" alt="" /> Liste des bulletins</h4>
+                        <div class="pro-con-table">
+                            <ng-container *ngIf="bulletins.length>0;else ElseIf">
+                                <table class="bordered responsive-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Session Scolaire</th>
+                                            <th>Moyenne</th>
+                                            <th>Rang</th>
+                                            <th>Afficher</th>
+                                            
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let bulletin of bulletins; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td>{{bulletin.session_scolaire.nom}}</td>
+                                            <td>{{bulletin.moy}}</td>
+                                            <td>{{bulletin.rang}}</td>
+                                           <td> <a  routerLink="/eleve/Detailsbulletin/{{bulletin.id}}"
+                                            style="background-color: #58b392;"
+                                            class="label label-success">Afficher</a></td>
+
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </ng-container>
+                            <ng-template #ElseIf>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <h4 style="padding:1%"> Aucun bulletin n'a été ajouté pour le moment....</h4>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                        </div>
+                    </div>
+                    <!-- <div class="inn-title">
+                        <h4>Liste d'examens</h4>
+                    </div> -->
+
+                    <!-- <div class="tab-inn">
+                        <ng-container *ngIf="examens.length>0;else ElseIf">
+                            <div class="table-responsive table-desi">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Examen</th>
+                                            <th>Date</th>
+                                            <th>Fichier d'examen</th>
+                                            <th>Fichier de correction</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let examen of examens; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td>{{examen.libelle}}</td>
+                                            <td>{{examen.date}}</td>
+                                            <td><a (click)="downloadFile(examen.fichier.id,examen.fichier.file)"
+                                                    class="menu-active"><i style="width:30%;"
+                                                        class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                                                <a (click)="openFile(examen.fichier.id)" class="menu-active"><i
+                                                        style="width:30%;" class="fa fa-eye" aria-hidden="true"></i></a>
+                                            </td>
+
+                                            <td
+                                                *ngIf="examen.fichier.fichier_correction.file_correction!=='noFile.pdf' else elseBlock">
+                                                <a (click)="downloadFileCorrection(examen.fichier.fichier_correction.id,examen.fichier.fichier_correction.file_correction)"
+                                                    class="menu-active"><i style="width:30%;"
+                                                        class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                                                <a (click)="openFileCorrection(examen.fichier.fichier_correction.id)"
+                                                    class="menu-active"><i style="width:30%;" class="fa fa-eye"
+                                                        aria-hidden="true"></i></a>
+                                            </td>
+                                            <ng-template #elseBlock>
+                                                <td>Pas de fichier</td>
+                                            </ng-template>
+
+
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </ng-container>
+                        <ng-template #ElseIf>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <h4 style="padding:1%"> Aucun examen n'a été ajouté pour le moment....</h4>
+                                </div>
+                            </div>
+                        </ng-template>
+
+                    </div> -->
+                </div>
+            </div>
+        </div>

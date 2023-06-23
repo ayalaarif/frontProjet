@@ -1,0 +1,94 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Afficher punition</a>
+            </li>
+           
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container pg-inn">
+                    <div class="udb">
+                       
+                        <div class="udb-sec udb-prof">
+
+
+                            <h4><img src="images/icon/db1.png" alt=""> Détails punition</h4>
+                            <div class="sdb-tabl-com sdb-pro-table">
+                                <table class="responsive-table bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>Élève</td>
+                                            <td>:</td>
+                                            <td>{{data.eleve.nom}} {{data.eleve.prenom}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matricule</td>
+                                            <td>:</td>
+                                            <td>{{data.eleve.matricule}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Groupe</td>
+                                            <td>:</td>
+                                            <td>{{data.eleve.groupes[0].niveau.libelle}} {{data.eleve.groupes[0].num}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Trimestre/Semestre</td>
+                                            <td>:</td>
+                                            <td>{{data.session.nom}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td>:</td>
+                                            <td>{{data.date|date: 'fullDate'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Type de punition</td>
+                                            <td>:</td>
+                                            <td>{{data.type}}</td>
+                                        </tr>
+                                        <tr *ngIf="data.type== 'Exclusion hors de la classe'">
+                                            <td>Séance</td>
+                                            <td>:</td>
+                                            <td>{{data.seance.jour}} {{data.seance.heure | slice :0:5}}</td>
+                                        </tr>
+                                        <tr *ngIf="data.type== 'Exclusion temporaire' && data.valider==1">
+                                            <td>Nombre de jours</td>
+                                            <td>:</td>
+                                            <td>{{data.nbrJours}} jours à partir du {{data.dateDebut|date: 'fullDate'}}</td>
+                                        </tr>
+                                        <tr *ngIf="data.type== 'Exclusion définitive' && data.valider==1">
+                                            <td>Date de suspension</td>
+                                            <td>:</td>
+                                            <td>{{data.dateDebut|date: 'fullDate'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Description</td>
+                                            <td>:</td>
+                                            <td>{{data.description}}</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                                <div class="sdb-bot-edit" *ngIf="data.valider==0">
+
+                                    <a  routerLink="/enseignant/dashboard/ModifierPunitions/{{data.id}}"
+                                        class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                            class="fa fa-pencil"></i> Modifier Punition</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

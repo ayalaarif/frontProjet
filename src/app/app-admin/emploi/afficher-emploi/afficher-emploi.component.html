@@ -1,0 +1,120 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Emploi du temps</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="emploi" #emploi class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Emploi du temps: {{Emploi.groupe.niveau.libelle}} {{Emploi.groupe.num}}  {{Emploi.annee_scolaire}}</h4>
+
+                    </div>
+                    <div #tabinn class="tab-inn">
+                        <form>
+                            <div  id="main_container">
+
+                            
+                               
+
+                                <div  id="redips-drag">
+
+                                    <!-- <div id="right"> -->
+                                    <table  id="table2">
+                                        <colgroup>
+                                            <col width="50" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" /> 
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <!-- div class="row">
+  <div class="col-md-4" ng-repeat="remainder in [0,1,2]">
+    <span ng-repeat="item in array" ng-if="$index % 3 == remainder">{{item}}</span>
+  </div>
+</div> -->
+                                                <td class="redips-mark blank"></td>
+                                                <td  *ngFor="let j of semaine" class="redips-mark dark">{{j}}</td>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr *ngFor="let h1 of demiJour1; index as i">
+                                                <td class="redips-mark dark">{{h1 | slice :0:5}}</td>
+                                                <td *ngFor="let j of semaine; index as k">
+                                                    <ng-container *ngIf="exist(j,h1)" >
+                                                        <div  class="input-field">
+                                                            
+                                                         <span style="font-weight: bold;"> {{seance.enseignant.matiere.libelle}}<br></span> 
+                                                            {{seance.enseignant.nom}} {{seance.enseignant.prenom}}<br>
+                                                            <span style="font-weight: lighter;">  {{seance.salle.nom}} {{seance.salle.num}}</span>
+
+                                                       
+                                                        </div>
+                                                    </ng-container>
+                                                  
+                                                </td>
+                                               
+                                            <tr>
+                                                <td class="redips-mark dark">12:00</td>
+                                                <td class="redips-mark lunch" colspan="6">Pause</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">13:00</td>
+                                                <td class="redips-mark lunch" colspan="6">Pause</td>
+                                            </tr>
+
+                                            <tr *ngFor="let h2 of demiJour2; index as m">
+                                                <td class="redips-mark dark">{{h2 | slice :0:5}}</td>
+                                                <td *ngFor="let j of semaine; index as n">
+                                                    <ng-container *ngIf="exist(j,h2)" >
+                                                        <div  class="input-field">
+                                                            
+                                                            <span style="font-weight: bold;"> {{seance.enseignant.matiere.libelle}}<br></span> 
+                                                            {{seance.enseignant.nom}} {{seance.enseignant.prenom}}<br>
+                                                            <span style="font-weight: lighter;">  {{seance.salle.nom}} {{seance.salle.num}}</span>
+
+                                                       
+                                                        </div>
+                                                    </ng-container>
+                                                  
+                                                </td>
+                                               
+                                        </tbody>
+                                    </table>
+                                    <!-- </div> -->
+                                    <!-- right container -->
+                                </div>
+                                <!-- drag container -->
+                            </div>
+                            <!-- main container -->
+                            
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                         (click)="makePDF()"   type="submit" value="Imprimer" class="waves-button-input"></i>
+                </div>
+            </div>
+        </div>
+    </div>

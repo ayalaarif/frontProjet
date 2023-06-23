@@ -1,0 +1,127 @@
+<!--SECTION START-->
+  <div class="stu-db">
+        <div class="container pg-inn">
+            <div class="col-md-3">
+                <div class="pro-user">
+                    <img [src]="imageToShow"  alt="Enseignant"
+                        *ngIf="!isImageLoading; else noImageFound">
+                    <ng-template #noImageFound>
+                        <img src="assets/images/Fallbackimage.jpg" style="width: 300px; height: 300px;"
+                            alt="Fallbackimage">
+                    </ng-template>
+                </div>
+                <div class="pro-user-bio">
+                    <ul>
+                        <li>
+                            <h4>{{enseignant.nom}} {{enseignant.prenom}}</h4>
+                        </li>
+                        <li>CIN: {{enseignant.cin}}</li>
+                        <!-- <li><a href="#!"><i class="fa fa-facebook"></i> Facebook: my sample</a></li>
+                            <li><a href="#!"><i class="fa fa-google-plus"></i> Google: my sample</a></li>
+                            <li><a href="#!"><i class="fa fa-twitter"></i> Twitter: my sample</a></li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="udb">
+
+                    <div class="udb-sec udb-prof">
+                        <h4><img src="assets/images/icon/db1.png" alt="" /> Profile</h4>
+
+                        <div class="sdb-tabl-com sdb-pro-table">
+                            <table class="responsive-table bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Nom </td>
+                                        <td>:</td>
+                                        <td>{{enseignant.nom}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prénom </td>
+                                        <td>:</td>
+                                        <td> {{enseignant.prenom}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de Naissance</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.dateNais}}</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Situation familiale</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.situation_familiale}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.user.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Téléphone</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.tel}}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                            <td>Date of birth</td>
+                                            <td>:</td>
+                                            <td>03 Jun 1990</td>
+                                        </tr> -->
+                                    <tr>
+                                        <td>Adresse</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.adresse}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date de Recrutement</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.dateRecrutement}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Matière à Enseigner</td>
+                                        <td>:</td>
+                                        <td>{{enseignant.matiere.libelle}}</td>
+                                    </tr>
+                                    <!-- <tr>
+                                            <td>Status</td>
+                                            <td>:</td>
+                                            <td><span class="db-done">Active</span> </td>
+                                        </tr> -->
+                                </tbody>
+                            </table>
+                            <div class="sdb-bot-edit">
+                                <!-- <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p> -->
+                                <a routerLink="/enseignant/modifierProfile/{{enseignant.id}}" class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                        class="fa fa-pencil"></i> Modifier Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--SECTION END-->
+
+
+<!--SECTION START-->
+<!-- <section>
+        <div class="full-bot-book">
+            <div class="container">
+                <div class="row">
+                    <div class="bot-book">
+                        <div class="col-md-2 bb-img">
+                            <img src="images/3.png" alt="">
+                        </div>
+                        <div class="col-md-7 bb-text">
+                            <h4>therefore always free from repetition</h4>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour</p>
+                        </div>
+                        <div class="col-md-3 bb-link">
+                            <a href="course-details.html">Book This Course</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+<!--SECTION END-->

@@ -1,0 +1,55 @@
+<!--== User Details ==-->
+<div class="stu-db">
+    <div class="container pg-inn">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="udb-sec udb-cour-stat">
+                        <h4><img src="assets/images/icon/db5.png"  alt="" /> Liste des notes</h4>
+                        <div class="pro-con-table">
+                            <div class="app-search" style="width: 100%; display: flex;">
+
+                                <input class="sf-input" type="text" placeholder="Matière" class="form-control"
+                                    (keyup.enter)="onInputSearch($event)">
+    
+                                <a><i class="fa fa-search"></i></a>
+                            </div>
+                            
+                            <ng-container *ngIf="notes.length>0;else ElseIf">
+                                <table class="bordered responsive-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Matière</th>
+                                            <th>Examen</th>
+                                            <th>Note</th>
+                                            <th>Remarque</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let n of notes; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td>{{n.examen.enseignants[0].matiere.libelle}}</td>
+                                            <td>{{n.examen.libelle}}</td>
+                                            <td>{{n.note}}</td>
+                                            <td>{{n.remarque}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </ng-container>
+                            <ng-template #ElseIf>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <h4 style="padding:1%"> Aucune note n'a été ajoutée pour le moment....</h4>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

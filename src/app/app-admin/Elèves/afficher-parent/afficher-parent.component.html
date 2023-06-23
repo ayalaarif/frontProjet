@@ -1,0 +1,113 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Afficher Parent</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container pg-inn">
+                    <h4>Détails Parent</h4> <br>
+
+                    <!-- <div class="udb-sec udb-prof"> -->
+                    <div class="sdb-tabl-com sdb-pro-table">
+                        <table class="responsive-table bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Nom Complet Père</td>
+                                    <td>:</td>
+                                    <td>{{data.nomComplet_pere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nom Complet Mère</td>
+                                    <td>:</td>
+                                    <td>{{data.nomComplet_mere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>CIN Père</td>
+                                    <td>:</td>
+                                    <td>{{data.cin_pere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>CIN Mère</td>
+                                    <td>:</td>
+                                    <td>{{data.cin_mere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Téléphone Père</td>
+                                    <td>:</td>
+                                    <td>{{data.tel_pere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Téléphone Mère</td>
+                                    <td>:</td>
+                                    <td>{{data.tel_mere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fonction Père</td>
+                                    <td>:</td>
+                                    <td>{{data.fct_pere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Fonction Mère</td>
+                                    <td>:</td>
+                                    <td> {{data.fct_mere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email père </td>
+                                    <td>:</td>
+                                    <td>{{data.email_pere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Mère</td>
+                                    <td>:</td>
+                                    <td>{{data.email_mere}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nom du Compte</td>
+                                    <td>:</td>
+                                    <td>{{data.user.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email du Compte</td>
+                                    <td>:</td>
+                                    <td>{{data.user.email}}</td>
+                                </tr>
+                                <ng-container *ngFor="let e of data.eleves; let i=index;">
+                                    <tr>
+                                        <td>Élève {{i+1}} </td>
+                                        <td>:</td>
+                                        <td>{{data.eleves[i].nom}} {{data.eleves[i].prenom}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Groupe </td>
+                                        <td>:</td>
+                                        <td>{{data.eleves[i].groupes[0].niveau.libelle}} {{data.eleves[i].groupes[0].num}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Matricule </td>
+                                        <td>:</td>
+                                        <td>{{data.eleves[i].matricule}}</td>
+                                    </tr>
+                                </ng-container>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

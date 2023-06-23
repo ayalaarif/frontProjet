@@ -1,0 +1,100 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Ajouter Matière</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Ajouter Matière</h4>
+                        <p>Here you can edit your website basic details URL, Phone, Email, Address, User and password
+                            and more</p>
+                    </div>
+                    <div class="tab-inn">
+                        <form #matiereForm="ngForm" (ngSubmit)="ajouterMatiereForm()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Matière(s) ajoutée(s) avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="MsgError== true && myBtnIdClicked== true">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12" >
+                                    <label *ngIf="!box1.value" for="niveau">Sélecter Niveau</label>
+                                    <select #box1="ngModel" id="niveau"  class="form-control " name="niveau_id" [(ngModel)]="Niveau_matieres.niveau_id"  required>
+                                        <!-- <option value="0" disabled selected>Sélecter Niveau</option> -->
+                                        <option  [value]="niveau.id" *ngFor="let niveau of niveaux" >{{niveau.libelle}}</option>
+                                    </select>
+                                    <div class="input-field col s12">
+                                        <strong *ngIf="box1.value==0 && box1.touched" class="text-danger">
+                                            Veuillez remplir ce champs
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="position:relative;left:1%" class="row" >
+                                <label  ><strong> Ajouter Matière</strong>  </label>
+                                <span style="margin-left: 1%;" class="btn" (click)="addMatiere()">+</span>
+                            </div>
+
+                            <div class="row" *ngFor="let matiere of Niveau_matieres.matieres; let i = index;">
+                                <div class="input-field col s6"  style="width:48%;">
+                                    <label *ngIf="!matiere.libelle">Matière{{i + 1}}</label>
+                                    <input #box2="ngModel"  name="libelle-{{i}}" type="text"  class="form-control" [(ngModel)]="matiere.libelle" required>
+                                    <!-- <span style="width:3%" class="btn btn-danger" (click)="removeMatiere(i)">-</span> -->
+                                    <div class="input-field col s6">
+                                        <strong *ngIf="box2.invalid && box2.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6" style="width:48%;">
+                                    <label *ngIf="!matiere.coef">Coefficient</label>
+                                    <input #box3="ngModel"  name="coef-{{i}}" type="text" class="form-control" [(ngModel)]="matiere.coef" required>
+                                    <div class="input-field col s6">
+                                        <strong *ngIf="box3.invalid && box3.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6"  style="width:4%;">
+                                    <span  class="btn btn-danger" (click)="removeMatiere(i)">-</span>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" (click)="myBtnClicked()" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

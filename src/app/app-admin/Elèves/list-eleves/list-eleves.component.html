@@ -1,0 +1,208 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Liste Élèves</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp">
+                    <div class="inn-title">
+                        <h4> Liste Élèves</h4>
+                    </div>
+
+                    <div class="row" *ngIf="showMsg">
+                        <div class="col-md-12">
+                            <p class="alert alert-success">
+                                <strong>Suppression avec succès</strong>
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="tab-inn">
+                        <ng-container *ngIf="((eleves.length>0)&&(annee_id==this.annee.id))||(elevesinscrits.length>0);else ElseIf">
+
+                            <div class="app-search" style="width: 100%; display: flex;">
+
+                                <input class="sf-input" type="text" placeholder="Nom/Prénom" class="form-control"
+                                    (keyup.enter)="onInputSearch($event)">
+                                <input type="text" placeholder="Matricule" class="form-control"
+                                    (keyup.enter)="onInputSearch2($event)">
+                                <!-- <select style="border-radius: 0px; border: none;" class="form-control" name="groupe_id"
+                                    (change)="onSelect($event)">
+                                    <option [value]="0" selected> Tous les groupes</option>
+                                    <option *ngFor="let groupe of groupes" [value]="groupe.id">
+                                        {{groupe.niveau.libelle}} {{groupe.num}} </option>
+                                </select> -->
+
+                                <a><i class="fa fa-search"></i></a>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="table-responsive table-desi">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nom</th>
+                                            <th>Matricule</th>
+                                            <th>Email</th>
+                                            <th>Groupe</th>
+                                            <th>Date Naissance</th>
+                                            <th>Afficher</th>
+                                            <th>Supprimer</th>
+                                            <th>Modifier</th>
+
+
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <ng-container *ngIf="annee_id==this.annee.id else showif">
+                                            <ng-container *ngFor="let e of eleves; let i=index;">
+
+                                                <tr>
+
+                                                    <td>{{i+1}}</td>
+                                                    <td><a href="#"><span class="list-enq-name">{{e.nom}}
+                                                                {{e.prenom}}</span><span
+                                                                class="list-enq-city">{{e.lieuNais}}</span></a>
+                                                    </td>
+                                                    <td>{{e.matricule}}</td>
+                                                    <td>{{e.user.email}}</td>
+                                                    <td>
+                                                        <ng-container *ngIf="e.groupes.length>0;else secondElse">
+                                                            {{e.groupes[0].niveau.libelle}} {{e.groupes[0].num}}
+                                                        </ng-container>
+                                                        <ng-template #secondElse>
+                                                            <a routerLink="/admin/InscrireEleve/{{e.id}}"
+                                                                style="background-color: #58b392"
+                                                                class="label label-success">Affecter</a>
+                                                        </ng-template>
+                                                    </td>
+                                                    <td>{{e.dateNais}}</td>
+
+                                                    <td><a routerLink="/admin/afficherEleve/{{e.id}}"
+                                                            style="background-color: #58b392"
+                                                            class="label label-success">Afficher</a></td>
+                                                    <td>
+                                                        <a data-toggle="modal" data-target="#modal5"
+                                                            (click)="onClick(e.id)" style="background-color: #f44336"
+                                                            class="label label-success">Supprimer</a>
+                                                    </td>
+                                                    <td> <a routerLink="/admin/modifierEleve/{{e.id}}"
+                                                            style="background-color: #002147"
+                                                            class="label label-success">Modifier</a></td>
+
+
+
+                                                </tr>
+
+                                                <!-- delete confirmation pop-up  -->
+                                                <div id="modal5" class="modal fade" role="dialog">
+                                                    <div class="log-in-pop" style="width: 60%; height:40%; padding:5%">
+                                                        <a #closeModal href="#" class="pop-close"
+                                                            data-dismiss="modal"><img src="assets/images/cancel.png"
+                                                                alt="" />
+                                                        </a>
+                                                        <h2 style="text-align: center; color: rgba(0, 0, 0, 0.934);">
+                                                            Supprimer Élève
+                                                        </h2>
+                                                        <h4 style="color: rgba(3, 3, 3, 0.873);">Êtes-vous sûr de
+                                                            vouloir
+                                                            supprimer cet(te) Élève ?
+                                                        </h4> <br>
+
+
+                                                        <div
+                                                            style="display: grid; grid-template-columns: auto auto; grid-gap: 50px;">
+                                                            <input (click)="cancel()" type="submit" value="Annuler"
+                                                                class="waves-effect waves-light log-in-btn"
+                                                                style="background-color: #002147;">
+                                                            <input (click)="deleteEleve(idEleve)" type="submit"
+                                                                value="Supprimer"
+                                                                class="waves-effect waves-light log-in-btn">
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </ng-container>
+                                        </ng-container>
+                                        <ng-template #showif>
+                                            <ng-container *ngFor="let e of elevesinscrits; let i=index;">
+
+                                                <tr>
+                                                    <!-- <td><span class="list-img"><img src="{{e.img}}" alt=""></span>
+                                                </td> -->
+                                                    <td>{{i+1}}</td>
+                                                    <td><a href="#"><span class="list-enq-name">{{e.nom}}
+                                                                {{e.prenom}}</span><span
+                                                                class="list-enq-city">{{e.lieuNais}}</span></a>
+                                                    </td>
+                                                    <td>{{e.matricule}}</td>
+                                                    <td>{{e.user.email}}</td>
+                                                    <td>
+                                                        {{e.groupes[0].niveau.libelle}} {{e.groupes[0].num}}
+                                                    </td>
+                                                    <td>{{e.dateNais}}</td>
+
+                                                    <td><a routerLink="/admin/afficherEleve/{{e.id}}"
+                                                            style="background-color: #58b392"
+                                                            class="label label-success">Afficher</a></td>
+                                                    <td>
+                                                        <a data-toggle="modal" data-target="#modal5"
+                                                            style="background-color: #f44336"
+                                                            class="label label-success"
+                                                            (click)="onClick(e.id)">Supprimer</a>
+                                                    </td>
+                                                    <td> <a routerLink="/admin/modifierEleve/{{e.id}}"
+                                                            style="background-color: #002147"
+                                                            class="label label-success">Modifier</a></td>
+
+
+
+                                                </tr>
+                                            </ng-container>
+
+
+
+                                        </ng-template>
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </ng-container>
+                        <ng-template #ElseIf>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <h4 style="padding:1%"> Aucun(e) Élève n'a été ajouté(e) pour le moment...</h4>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

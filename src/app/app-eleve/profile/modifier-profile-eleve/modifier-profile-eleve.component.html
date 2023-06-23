@@ -1,0 +1,99 @@
+<!--== User Details ==-->
+<div class="stu-db">
+    <div class="container pg-inn">
+        <div class="box-inn-sp admin-form">
+            <div class="inn-title">
+                <h4>Modifier Profile</h4>
+            </div>
+            <div class="tab-inn">
+                <form #modifierProfileForm="ngForm" (ngSubmit)="modifierProfileEleve()">
+                    <div class="row" *ngIf="showMsg">
+                        <div class="input-field col s12">
+                            <p class="alert alert-success">
+                                <strong>Profile modifié avec succès</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="MsgError== true&& myBtnIdClicked== true">
+                        <div class="input-field col s12">
+                            <p class="alert alert-danger">
+                                <strong>Veuillez vérifier vos champs</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input #box1="ngModel" pattern="[a-z A-Z]+$" type="text" name="nom" [(ngModel)]="eleve.nom"
+                                class="validate" required>
+                            <label *ngIf="!box1.value">Nom</label>
+                            <div class="input-field col 6">
+                                <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input #box2="ngModel" pattern="[a-z A-Z]+$" type="text" name="prenom"
+                                [(ngModel)]="eleve.prenom" class="validate" required>
+                            <label *ngIf="!box2.value" class="">Prénom</label>
+                            <div class="input-field col 6">
+                                <strong *ngIf="box2.invalid && box2.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input #dateNais="ngModel" type="text" name="dateNais" [(ngModel)]="eleve.dateNais"
+                                placeholder="Date Naissance" onfocus="(this.type='date')" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input #box5="ngModel" type="text" name="adresse" [(ngModel)]="eleve.adresse"
+                                class="validate" required>
+                            <label *ngIf="!box5.value">Adresse</label>
+                            <div class="input-field col 6">
+                                <strong *ngIf="box5.invalid && box5.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="file-field input-field col s12">
+                            <div class="btn admin-upload-btn">
+                                <span>Image</span>
+                                <input type="file" name="img" (change)="onFileSelected($event)">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="{{eleve.img}}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="waves-effect waves-light light-btn waves-input-wrapper"><input type="submit"
+                                    (click)="myBtnClicked()" value="Envoyer" class="waves-button-input"></i>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

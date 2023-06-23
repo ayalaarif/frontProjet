@@ -1,0 +1,97 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a href="#"> Ajouter Cours</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Ajouter Cours</h4>
+
+                    </div>
+                    <div class="tab-inn">
+                        <form #coursform="ngForm" (ngSubmit)="ajouterCours()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Cours ajouté avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row"
+                                *ngIf="((MsgError== true && myBtnIdClicked== true) || (fileEmpty== true && myBtnIdClicked== true))">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input #box="ngModel" type="text" name="libelle" value="" class="validate"
+                                        [(ngModel)]="cours.libelle" required>
+                                    <label *ngIf="!box.value">Libellé</label>
+                                    <div class="input-field col 12">
+                                        <strong *ngIf="box.invalid && box.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea #box1="ngModel" name="description" [(ngModel)]="cours.description"
+                                        class="materialize-textarea" required></textarea>
+                                    <label class="" *ngIf="!box1.value">Description :</label>
+                                    <div class="input-field col 12">
+                                        <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                            Veuillez saisir une entrée valide
+                                        </strong>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="file-field input-field col s12">
+                                    <div class="btn admin-upload-btn">
+                                        <span>Fichier</span>
+                                        <input (change)="uploadFile($event)" name="file" id="file" type="file"
+                                            accept=".xls, .xlsx, .pdf, .doc, .docx, .txt, .csv, .ppt, .pptx" required>
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Fichier cours">
+                                    </div>
+                                    <div class="input-field col 12">
+                                        <strong class="text-danger">
+                                            (Le fichier doit être .pdf, .doc, .docx, .txt, .csv, .ppt, .pptx, .xls, ou
+                                            bien .xlsx)
+                                        </strong>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            (click)="myBtnClicked()" type="submit" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

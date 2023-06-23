@@ -1,0 +1,155 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a> Afficher Élève</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-2">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container pg-inn">
+                    <div class="udb">
+                        <div class="col-md-3">
+                            <img *ngIf="(data.img!='noimage.jpg') else noImageFound" [src]="imageToShow"
+                                style="width: 220px; height: 220px;" alt="Élève">
+                            <ng-template #noImageFound>
+                                <img src="assets/images/Fallbackimage.jpg" style="width: 220px; height: 220px;"
+                                    alt="Fallbackimage">
+                            </ng-template>
+                        </div>
+                        <div class="udb-sec udb-prof">
+
+
+                            <h4><img src="images/icon/db1.png" alt=""> Détails Élève</h4>
+                            <div class="sdb-tabl-com sdb-pro-table">
+                                <table class="responsive-table bordered">
+                                    <tbody>
+                                        <tr>
+                                            <td>Nom</td>
+                                            <td>:</td>
+                                            <td>{{data.nom}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prénom</td>
+                                            <td>:</td>
+                                            <td>{{data.prenom}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sexe</td>
+                                            <td>:</td>
+                                            <td>{{data.sexe}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nationalité</td>
+                                            <td>:</td>
+                                            <td>{{data.nationalite}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date Naissance</td>
+                                            <td>:</td>
+                                            <td>{{data.dateNais}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lieu Naissance</td>
+                                            <td>:</td>
+                                            <td>{{data.lieuNais}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adresse</td>
+                                            <td>:</td>
+                                            <td>{{data.adresse}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Matricule</td>
+                                            <td>:</td>
+                                            <td>{{data.matricule}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Groupe</td>
+                                            <td>:</td>
+                                            <td>
+                                                <ng-container *ngIf="data.groupes.length>0;else secondElse">
+                                                    {{data.groupes[0].niveau.libelle}} {{data.groupes[0].num}}
+                                                </ng-container>
+                                                <ng-template #secondElse>
+                                                     Non inscrit
+                                                </ng-template>
+                                            </td>
+                                            <!-- <td>{{data.groupes[0].niveau.libelle}} {{data.groupe[0].num}}</td> -->
+                                        </tr>
+
+                                        <tr>
+                                            <td>Nom du Compte </td>
+                                            <td>:</td>
+                                            <td>{{data.user.name}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email du Compte </td>
+                                            <td>:</td>
+                                            <td>{{data.user.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nom complet père </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.nomComplet_pere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nom complet mère </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.nomComplet_mere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CIN père </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.cin_pere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CIN mère </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.cin_mere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Téléphone Père </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.tel_pere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Téléphone mère </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.tel_mere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email père </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.email_pere}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email mère </td>
+                                            <td>:</td>
+                                            <td>{{data.parentt.email_mere}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="sdb-bot-edit">
+
+                                    <a routerLink="/admin/modifierEleve/{{data.id}}"
+                                        class="waves-effect waves-light btn-large sdb-btn sdb-btn-edit"><i
+                                            class="fa fa-pencil"></i> Modifier Élève</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

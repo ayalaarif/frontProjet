@@ -1,0 +1,67 @@
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Inscrire Élève</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Inscrire {{eleve.nom}} {{eleve.prenom}}</h4>
+                        
+                    </div>
+                    <div class="tab-inn">
+                        <form #inscriptionform="ngForm" (ngSubmit)="inscrireEleve()">
+                            <div class="row" *ngIf="showMsg">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-success">
+                                        <strong>Élève inscrit avec succès</strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="MsgError== true && myBtnIdClicked== true">
+                                <div class="input-field col s12">
+                                    <p class="alert alert-danger">
+                                        <strong>Veuillez vérifier vos champs</strong>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <label *ngIf="!box1.value" for="groupe">Sélecter Groupe</label>
+                                    <select #box1="ngModel" id="groupe" class="form-control" name="groupe_id" [(ngModel)]="data.groupe_id" required>
+                                        <option *ngFor="let groupe of groupes" [value]="groupe.id">{{groupe.niveau.libelle}} {{groupe.num}}</option>
+                                        
+                                    </select>
+                                   
+                                </div>
+                            </div>
+
+                           
+
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" (click)="myBtnClicked()" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

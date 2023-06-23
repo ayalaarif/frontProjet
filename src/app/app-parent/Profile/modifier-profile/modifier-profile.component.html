@@ -1,0 +1,136 @@
+<!--== User Details ==-->
+<div class="stu-db">
+    <div class="container pg-inn">
+        <div class="box-inn-sp admin-form">
+            <div class="inn-title">
+                <h4>Modifier Profile</h4>
+            </div>
+            <div class="tab-inn">
+                <form #modifierProfileform="ngForm" (ngSubmit)="modifierProfileParent()">
+                    <div class="row" *ngIf="showMsg">
+                        <div class="input-field col s12">
+                            <p class="alert alert-success">
+                                <strong>Profile modifié avec succès</strong>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="MsgError== true && myBtnIdClicked== true">
+                        <div class="input-field col s12">
+                            <p class="alert alert-danger">
+                                <strong>Veuillez vérifier vos champs</strong>
+                            </p>
+                        </div>
+                    </div>
+                   
+                   
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input #box1="ngModel" pattern="[a-z A-Z]+$" type="text" name="nomComplet_pere"
+                                [(ngModel)]="parent.nomComplet_pere" class="validate" required>
+                            <label *ngIf="!box1.value">Nom Complet Père</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box1.invalid && box1.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input #box2="ngModel" pattern="[a-z A-Z]+$" type="text" name="nomComplet_mere"
+                                [(ngModel)]="parent.nomComplet_mere" class="validate" required>
+                            <label *ngIf="!box2.value">Nom Complet Mère</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box2.invalid && box2.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input #box3="ngModel" pattern="[+ 0-9]+$" type="text" name="tel_pere" [(ngModel)]="parent.tel_pere"
+                                class="validate" required>
+                            <label *ngIf="!box3.value">Téléphone Père</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box3.invalid && box3.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input #box4="ngModel" pattern="[+ 0-9]+$" type="text" name="tel_mere" [(ngModel)]="parent.tel_mere"
+                                class="validate" required>
+                            <label *ngIf="!box4.value">Téléphone Mère</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box4.invalid && box4.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input #box5="ngModel" type="text" name="fct_pere" [(ngModel)]="parent.fct_pere"
+                                class="validate" required>
+                            <label *ngIf="!box3.value">Fonction Père</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box5.invalid && box5.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input #box6="ngModel" type="text" name="fct_mere" [(ngModel)]="parent.fct_mere"
+                                class="validate" required>
+                            <label *ngIf="!box6.value">Fonction Mère</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box6.invalid && box6.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input #box7="ngModel" type="text" name="email_pere" [(ngModel)]="parent.email_pere"
+                                class="validate" required>
+                            <label *ngIf="!box7.value">Email Père</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box7.invalid && box7.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input #box8="ngModel" type="text" name="email_mere" [(ngModel)]="parent.email_mere"
+                                class="validate" required>
+                            <label *ngIf="!box8.value">Email Mère</label>
+                            <div class="input-field col 12">
+                                <strong *ngIf="box8.invalid && box8.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="waves-effect waves-light light-btn waves-input-wrapper"><input type="submit"
+                                (click)="myBtnClicked()" value="Envoyer" class="waves-button-input"></i>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

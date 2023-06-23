@@ -1,0 +1,190 @@
+
+<!--== BODY INNER CONTAINER ==-->
+<div class="sb2-2">
+    <!--== breadcrumbs ==-->
+    <div class="sb2-2-2">
+        <ul>
+            <li><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i> Accueil</a>
+            </li>
+            <li class="active-bre"><a>Modifier Emploi</a>
+            </li>
+            <!-- <li class="page-back"><a href="index-2.html"><i class="fa fa-backward" aria-hidden="true"></i> Back</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!--== User Details ==-->
+    <div class="sb2-2-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box-inn-sp admin-form">
+                    <div class="inn-title">
+                        <h4>Modifier Emploi du temps :{{data.groupe.niveau.libelle}} {{data.groupe.num}}</h4>
+
+                    </div>
+                    <div class="tab-inn">
+                        <form #emploiForm="ngForm" (ngSubmit)="modifierEmploi()">
+                            <ng-container  *ngIf="show">
+                            <div id="main_container">
+
+                                <div class="row" *ngIf="showMsg">
+                                    <div class="input-field col s12">
+                                        <p class="alert alert-success">
+                                            <strong> Emploi du temps modifié avec succès</strong>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row">
+                                    <div class="input-field col s12">
+                                        <label *ngIf="!box1.value" for="grps">Groupes</label>
+                                        <select #box1="ngModel" (change)="onSelect()" id="grps"
+                                            class="form-control" name="groupe_id" [(ngModel)]="emploi.groupe_id"
+                                            required>
+                                            <option *ngFor="let groupe of groupes;" [value]="groupe.id">
+                                                {{groupe.niveau.libelle}} {{groupe.num}}</option>
+                                        </select>
+                                    </div> -->
+
+                                    <!-- <div class="input-field col s6">
+                                        <input type="text" name="année_scolaire" class="validate"
+                                            placeholder="Année scolaire" [(ngModel)]="emploi.annee_scolaire" required>
+                                    </div> -->
+                                <!-- </div> -->
+                            
+                                <div id="redips-drag">
+
+                                    <!-- <div id="right"> -->
+                                    <table id="table2">
+                                        <colgroup>
+                                            <col width="50" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                            <col width="100" />
+                                        </colgroup>
+                                        <thead>
+                                            <tr>
+                                                <td class="redips-mark blank"></td>
+                                                <td *ngFor="let j of semaine" class="redips-mark dark">{{j}}</td>
+                                    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr *ngFor="let h1 of demiJour1; index as i">
+                                                <td class="redips-mark dark">{{h1 | slice :0:5}}</td>
+                                             <td *ngFor="let j of semaine; index as k;">
+                                            
+                                                        <div class="input-field">
+                                                            <label *ngIf="!matiere.value" for="matiere">Matière</label>
+                                                            <select #matiere="ngModel" class="form-control" id="matiere"
+                                                                name="enseignant_id-{{seance(j,h1)}}"
+                                                                [(ngModel)]="emploi.seances[seance(j,h1)].enseignant_id">
+                                                                <option [value]="0">Matière</option>
+                                                                <ng-container *ngFor="let m of MatiereEnseignant">
+                                                                    <ng-container *ngIf="((!enseignantSalleOccupe(m.id,j,h1))||(emploi.seances[seance(j,h1)].enseignant_id==m.id))">
+                                                                        <option 
+                                                                        [value]="m.id">
+                                                                        {{m.matiere.libelle}}
+                                                                    </option>
+                                                                </ng-container>
+                                                                </ng-container>
+                                                               
+                                                            </select>
+                                                            <!-- <span>{{seance(j,h1)}}</span> -->
+                                                        </div>
+                                                        <div class="input-field">
+                                                            <label *ngIf="!salle.value" for="salle">Salle</label>
+                                                            <select #salle="ngModel" class="form-control" id="salle"
+                                                                name="salle_id-{{seance(j,h1)}}"
+                                                                [(ngModel)]="emploi.seances[seance(j,h1)].salle_id">
+                                                                <option [value]="0">Salle</option>
+                                                                <ng-container *ngFor="let s of salles">
+                                                                    <ng-container *ngIf="((!enseignantSalleOccupe(s.id,j,h1))||(emploi.seances[seance(j,h1)].salle_id==s.id))">
+                                                                     <option  [value]="s.id">
+                                                                         {{s.nom}} {{s.num}}
+                                                                      </option>
+                                                                    </ng-container>
+                                                                </ng-container>
+                                                            </select>
+                                                        </div>
+                                                   
+                                                   
+                                                </td>
+                                            
+                                            </tr>
+
+                                          
+                                            <tr>
+                                                <td class="redips-mark dark">12:00</td>
+                                                <td class="redips-mark lunch" colspan="6">Pause</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="redips-mark dark">13:00</td>
+                                                <td class="redips-mark lunch" colspan="6">Pause</td>
+                                            </tr>
+
+                                            <tr *ngFor="let h2 of demiJour2; index as m">
+                                                <td class="redips-mark dark">{{h2 | slice :0:5}}</td>
+                                                <td *ngFor="let j of semaine; index as n">
+                                                    <div class="input-field">
+
+                                                        <label *ngIf="!matiere.value" for="matiere">Matière</label>
+                                                        <select #matiere="ngModel" class="form-control" id="matiere"
+                                                            name="enseignant_id-{{seance(j,h2)}}"
+                                                            [(ngModel)]="emploi.seances[seance(j,h2)].enseignant_id">
+                                                            <option [value]="0">Matière</option>
+                                                            <ng-container *ngFor="let m of MatiereEnseignant">
+                                                                <ng-container *ngIf="((!enseignantSalleOccupe(m.id,j,h2))||(emploi.seances[seance(j,h2)].enseignant_id==m.id))">
+                                                            <option  [value]="m.id">
+                                                                {{m.matiere.libelle}}
+                                                            </option>
+                                                                </ng-container>
+                                                            </ng-container>
+                                                        </select>
+                                                        <!-- <span>{{seance(j,h2)}}</span> -->
+                                                    </div>
+                                                    <div class="input-field">
+                                                        <label *ngIf="!salle.value" for="salle">Salle</label>
+                                                        <select #salle="ngModel" class="form-control" id="salle"
+                                                            name="salle_id-{{seance(j,h2)}}"
+                                                            [(ngModel)]="emploi.seances[seance(j,h2)].salle_id">
+                                                            <option [value]="0">Salle</option>
+                                                            <ng-container *ngFor="let s of salles">
+                                                                <ng-container *ngIf="((!enseignantSalleOccupe(s.id,j,h2))||(emploi.seances[seance(j,h2)].salle_id==s.id))">
+                                                                <option  [value]="s.id">
+                                                                   {{s.nom}}
+                                                                   {{s.num}}
+                                                               </option>
+                                                            </ng-container>
+                                                            </ng-container>
+                                                        </select>
+                                                    </div>
+                                                   
+                                                </td>
+                                            </tr>  
+                                        </tbody>
+                                    </table>
+                                  
+                                </div>
+                           
+                              
+                            </div>
+                            <!-- main container -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="waves-effect waves-light btn-large waves-input-wrapper"><input
+                                            type="submit" value="Enregistrer" class="waves-button-input"></i>
+                                </div>
+                            </div>
+                        </ng-container>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
