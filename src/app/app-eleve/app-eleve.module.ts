@@ -12,6 +12,8 @@ import { TravauxComponent } from './travaux/travaux.component';
 import { EmploiEleveComponent } from './emploi-eleve/emploi-eleve.component';
 import { BulletinsComponent } from './Bulletins/bulletins/bulletins.component';
 import { DetailsBulletinComponent } from './Bulletins/details-bulletin/details-bulletin.component';
+import { ChatsComponent } from './Chat/chats/chats.component';
+import { AccueilComponent } from './Accueil/accueil/accueil.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { DetailsBulletinComponent } from './Bulletins/details-bulletin/details-b
     EmploiEleveComponent,
     BulletinsComponent,
     DetailsBulletinComponent,
+    ChatsComponent,
+    AccueilComponent,
   ],
   imports: [
     CommonModule,

@@ -75,7 +75,7 @@
                 <div class="col-md-12">
                     <div class="ed-com-t1-left">
                         <ul>
-                            
+
                         </ul>
                     </div>
                     <div class="ed-com-t1-right">
@@ -140,8 +140,14 @@
                     </div>
                     <div class="main-menu">
                         <ul>
-                            <li><a routerLink="/">Accueil</a>
+                            <li><a *ngIf="isAuth && role=== 'eleve'; else whatever" routerLink="/eleve/accueil" >Accueil</a>
                             </li>
+                            <ng-template #whatever>
+                            <li><a  routerLink="/">Accueil</a>
+
+
+                            </ng-template>
+
                             <li class="about-menu">
                                 <a routerLink="about" class="mm-arr">À Propos</a>
                                 <!-- MEGA MENU 1 -->

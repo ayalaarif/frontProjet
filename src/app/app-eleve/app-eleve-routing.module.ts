@@ -11,6 +11,8 @@ import { NotesComponent } from './notes/notes.component';
 import { AfficherProfileComponent } from './profile/afficher-profile/afficher-profile.component';
 import { ModifierProfileEleveComponent } from './profile/modifier-profile-eleve/modifier-profile-eleve.component';
 import { TravauxComponent } from './travaux/travaux.component';
+import { ChatsComponent } from './Chat/chats/chats.component';
+import { AccueilComponent } from './Accueil/accueil/accueil.component';
 
 const routes: Routes = [
   {
@@ -52,6 +54,14 @@ const routes: Routes = [
           {
             path: 'bulletins',
             component:BulletinsComponent
+          },
+          {
+            path: 'chats',
+            component:ChatsComponent
+          },
+          {
+            path: 'accueil',
+            component:AccueilComponent
           },
          
         ]

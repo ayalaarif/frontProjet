@@ -74,7 +74,7 @@ export class HomeLayoutComponent implements OnInit, OnDestroy {
         this.router.navigate(['/admin']);
       }
       else if (result.user.role === 'eleve') {
-        this.router.navigate(['/eleve']);
+        this.router.navigate(['/eleve/accueil']);
       }
       else if (result.user.role === 'enseignant') {
         this.router.navigate(['/enseignant']);
