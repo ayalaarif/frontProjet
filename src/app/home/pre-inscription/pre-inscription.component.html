@@ -3,14 +3,14 @@
     <div class="container">
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="all-title quote-title qu-new">
-                <h2>Préinscription</h2>
+                <h2>Inscription</h2>
                 <p>Vous n'avez pas de compte ? Prière de préinscrire d'abord et attendez la confirmation de
                     l'administration pour devenir un membre
-                    de ProEducation.</p>
-                <p>Pour plus d'information veuillez nous contacter sur le numéro suivant </p>
+                    de CampusConnect.</p>
+                <!-- <p>Pour plus d'information veuillez nous contacter sur le numéro suivant </p>
                 <p class="help-line">Téléphone: <span>+216 73 231 231</span> </p> <span><i class="fa fa-angle-right"
                         aria-hidden="true"></i></span><span class="help-arrow pulse"><i class="fa fa-angle-right"
-                        aria-hidden="true"></i></span>
+                        aria-hidden="true"></i></span> -->
             </div>
         </div>
 
@@ -105,20 +105,6 @@
                         </div>
 
                         <div class="input-field col s6">
-                            <input #box4="ngModel" type="text" name="lieuNais" [(ngModel)]="preInscrit.lieuNais"
-                                class="validate" placeholder="Lieu Naissance" required>
-                            <!-- <label class="">Lieu Naissance</label> -->
-                            <div class="input-field col 6">
-                                <strong *ngIf="box4.invalid && box4.touched" class="text-danger">
-                                    Veuillez saisir une entrée valide
-                                </strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="input-field col s6">
                             <input #box5="ngModel" type="text" name="adresse" [(ngModel)]="preInscrit.adresse"
                                 class="validate" placeholder="Adresse" required>
                             <!-- <label class="">Adresse</label> -->
@@ -128,8 +114,21 @@
                                 </strong>
                             </div>
                         </div>
+                        <!-- <div class="input-field col s6">
+                            <input #box4="ngModel" type="text" name="lieuNais" [(ngModel)]="preInscrit.lieuNais"
+                                class="validate" placeholder="Lieu Naissance" required> -->
+                            <!-- <label class="">Lieu Naissance</label> -->
+                            <!-- <div class="input-field col 6">
+                                <strong *ngIf="box4.invalid && box4.touched" class="text-danger">
+                                    Veuillez saisir une entrée valide
+                                </strong> -->
+                            <!-- </div>
+                        </div> -->
+                    </div>
 
-                        <div class="input-field col s6">
+                    <div class="row">
+
+                        <div class="input-field col s12">
                             <!-- <input type="text" value="" class="validate" placeholder="Niveau" required> -->
                             <!-- <label *ngIf="!niveau.value" for="niveau" >Sélecter Niveau</label> -->
                             <select style="height: 45px;" #niveau="ngModel" id="niveau" class="form-control" name="niveau_id"
@@ -137,7 +136,7 @@
                                 <option [value]="0" disabled selected> Niveau</option>
                                 <option *ngFor="let niveau of niveaux" [value]="niveau.id">{{niveau.libelle}}</option>
                             </select>
-                            <div class="input-field col 6">
+                            <div class="input-field col 12">
                                 <strong *ngIf="niveau.invalid && niveau.touched" class="text-danger">
                                     Veuillez remplir ce champs
                                 </strong>
@@ -146,78 +145,78 @@
 
                     </div>
 
-                    <div class="row">
+                    <!-- <div class="row"> -->
 
-                        <div class="input-field col s6">
+                        <!-- <div class="input-field col s6">
                             <input #box6="ngModel" pattern="[a-z A-Z]+$" type="text" name="nomComplet_pere"
                                 [(ngModel)]="preInscrit.nomComplet_pere" class="validate" placeholder="Nom complet Père"
-                                required>
+                                required> -->
                             <!-- <label class="">Nom_Complet Père</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box6.invalid && box6.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="input-field col s6">
+                        <!-- <div class="input-field col s6">
                             <input #box7="ngModel" type="text" name="nomComplet_mere"
                                 [(ngModel)]="preInscrit.nomComplet_mere" class="validate" placeholder="Nom complet Mère"
-                                required>
+                                required> -->
                             <!-- <label class="">Nom_Complet Mère</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box7.invalid && box7.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
-                        </div>
+                        </div> -->
 
-                    </div>
+                    <!-- </div> -->
 
-                    <div class="row">
+                    <!-- <div class="row">
 
                         <div class="input-field col s6">
                             <input #box8="ngModel" type="text" name="cin_pere" [(ngModel)]="preInscrit.cin_pere"
-                                class="validate" placeholder="CIN Père" required>
+                                class="validate" placeholder="CIN Père" required> -->
                             <!-- <label class="">CIN Père</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box8.invalid && box8.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="input-field col s6">
+                        <!-- <div class="input-field col s6">
                             <input #box9="ngModel" type="text" name="cin_mere" [(ngModel)]="preInscrit.cin_mere"
-                                class="validate" placeholder="CIN Mère" required>
+                                class="validate" placeholder="CIN Mère" required> -->
                             <!-- <label class="">CIN Mère</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box9.invalid && box9.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
 
-                    <div class="row">
+                    <!-- <div class="row">
 
                         <div class="input-field col s6">
                             <input #box10="ngModel" type="text" name="tel_pere" [(ngModel)]="preInscrit.tel_pere"
-                                class="validate" placeholder="Téléphone Père" required>
+                                class="validate" placeholder="Téléphone Père" required> -->
                             <!-- <label class="">Téléphone Père</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box10.invalid && box10.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="input-field col s6">
+                        <!-- <div class="input-field col s6">
                             <input #box11="ngModel" type="text" name="tel_mere" [(ngModel)]="preInscrit.tel_mere"
-                                class="validate" placeholder="Téléphone Mère" required>
+                                class="validate" placeholder="Téléphone Mère" required> -->
                             <!-- <label class="">Téléphone Mère</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box11.invalid && box11.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
@@ -230,9 +229,9 @@
 
                         <div class="input-field col s6">
                             <input #box12="ngModel" type="text" name="fct_pere" [(ngModel)]="preInscrit.fct_pere"
-                                class="validate" placeholder="Fonction Père" required>
+                                class="validate" placeholder="Fonction Père" required> -->
                             <!-- <label class="">Fonction Père</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box12.invalid && box12.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
@@ -241,9 +240,9 @@
 
                         <div class="input-field col s6">
                             <input #box13="ngModel" type="text" name="fct_mere" [(ngModel)]="preInscrit.fct_mere"
-                                class="validate" placeholder="Fonction Mère" required>
+                                class="validate" placeholder="Fonction Mère" required> -->
                             <!-- <label class="">Fonction Mère</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box13.invalid && box13.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
@@ -256,9 +255,9 @@
 
                         <div class="input-field col s6">
                             <input #box14="ngModel" email type="email" class="validate" name="email_pere"
-                                [(ngModel)]="preInscrit.email_pere" placeholder="Email père" required>
+                                [(ngModel)]="preInscrit.email_pere" placeholder="Email père" required> -->
                             <!-- <label class="">Email père</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box14.invalid && box14.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
@@ -267,16 +266,16 @@
 
                         <div class="input-field col s6">
                             <input #box15="ngModel" email type="email" name="email_mere"
-                                [(ngModel)]="preInscrit.email_mere" class="validate" placeholder="Email Mère" required>
+                                [(ngModel)]="preInscrit.email_mere" class="validate" placeholder="Email Mère" required> -->
                             <!-- <label class="">Email Mère</label> -->
-                            <div class="input-field col 6">
+                            <!-- <div class="input-field col 6">
                                 <strong *ngIf="box15.invalid && box15.touched" class="text-danger">
                                     Veuillez saisir une entrée valide
                                 </strong>
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="row">
                         <div class="file-field input-field col s12">
