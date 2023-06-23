@@ -130,7 +130,7 @@
 
 
     <!-- LOGO AND MENU SECTION -->
-    <div class="top-logo" data-spy="affix" data-offset-top="250">
+    <div  *ngIf="!isAuth" class="top-logo" data-spy="affix" data-offset-top="250">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -140,13 +140,11 @@
                     </div>
                     <div class="main-menu">
                         <ul>
-                            <li><a *ngIf="isAuth && role=== 'eleve'; else whatever" routerLink="/eleve/accueil" >Accueil</a>
-                            </li>
-                            <ng-template #whatever>
+                            
                             <li><a  routerLink="/">Accueil</a>
 
 
-                            </ng-template>
+                            
 
                             <li class="about-menu">
                                 <a routerLink="about" class="mm-arr">À Propos</a>
@@ -371,6 +369,20 @@
             </div>
         </div>
     </div>
+    <section *ngIf="isAuth && role=== 'eleve'" >
+        <div class="menu-bar">
+            <div class="button-bar">
+              <ul>
+                <li><a class="button-link" routerLink="/eleve">Accueil </a></li>
+                <li><a class="button-link" routerLink="/eleve/UVs">UVs </a></li>
+                <li><a class="button-link" routerLink="/eleve">Associations</a></li>
+                <li><a class="button-link" routerLink="/eleve">Logements</a></li>
+                <li><a class="button-link" routerLink="/eleve">Restaurations</a></li>
+              </ul>
+            </div>
+          </div>
+    </section>
+
     <!-- <div class="search-top">
         <div class="container">
             <div class="row">

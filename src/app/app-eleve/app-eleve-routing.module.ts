@@ -13,12 +13,19 @@ import { ModifierProfileEleveComponent } from './profile/modifier-profile-eleve/
 import { TravauxComponent } from './travaux/travaux.component';
 import { ChatsComponent } from './Chat/chats/chats.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
+import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
     children: [
+      
+        {
+          path: 'accueilEtud',
+          component:AcceuilEtudiantComponent
+        },
+      
       {
         path: '',
         component: EleveNavbarComponent,
