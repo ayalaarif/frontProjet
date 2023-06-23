@@ -14,6 +14,7 @@ import { BulletinsComponent } from './Bulletins/bulletins/bulletins.component';
 import { DetailsBulletinComponent } from './Bulletins/details-bulletin/details-bulletin.component';
 import { ChatsComponent } from './Chat/chats/chats.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
+import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AccueilComponent } from './Accueil/accueil/accueil.component';
     DetailsBulletinComponent,
     ChatsComponent,
     AccueilComponent,
+    AcceuilEtudiantComponent,
   ],
   imports: [
     CommonModule,
