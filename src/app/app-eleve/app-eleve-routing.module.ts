@@ -14,6 +14,7 @@ import { TravauxComponent } from './travaux/travaux.component';
 import { ChatsComponent } from './Chat/chats/chats.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
 import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
+import { UvComponent } from './uv/uv.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
         {
           path: 'accueilEtud',
           component:AcceuilEtudiantComponent
+        },
+        {
+          path: 'uvs',
+          component:UvComponent
         },
       
       {
@@ -70,6 +75,7 @@ const routes: Routes = [
             path: 'accueil',
             component:AccueilComponent
           },
+          
          
         ]
       }
