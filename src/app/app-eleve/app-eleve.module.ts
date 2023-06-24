@@ -6,12 +6,7 @@ import { AfficherProfileComponent } from './profile/afficher-profile/afficher-pr
 import { ModifierProfileEleveComponent } from './profile/modifier-profile-eleve/modifier-profile-eleve.component';
 import { FormsModule } from '@angular/forms';
 import { CoursComponent } from './cours/cours.component';
-import { ExamensComponent } from './examens/examens.component';
-import { NotesComponent } from './notes/notes.component';
-import { TravauxComponent } from './travaux/travaux.component';
-import { EmploiEleveComponent } from './emploi-eleve/emploi-eleve.component';
-import { BulletinsComponent } from './Bulletins/bulletins/bulletins.component';
-import { DetailsBulletinComponent } from './Bulletins/details-bulletin/details-bulletin.component';
+
 import { ChatsComponent } from './Chat/chats/chats.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
 import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
@@ -29,12 +24,7 @@ import { AssociationsComponent } from './associations/associations.component';
     AfficherProfileComponent,
     ModifierProfileEleveComponent,
     CoursComponent,
-    ExamensComponent,
-    NotesComponent,
-    TravauxComponent,
-    EmploiEleveComponent,
-    BulletinsComponent,
-    DetailsBulletinComponent,
+    
     ChatsComponent,
     AccueilComponent,
     AcceuilEtudiantComponent,
