@@ -16,6 +16,8 @@ import { AccueilComponent } from './Accueil/accueil/accueil.component';
 import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
 import { UvComponent } from './uv/uv.component';
 import { SpecialiteComponent } from './specialite/specialite.component';
+import { UvDetailsComponent } from './uv-details/uv-details.component';
+import { ProfileAutreEtudiantComponent } from './profile-autre-etudiant/profile-autre-etudiant.component';
 
 const routes: Routes = [
   {
@@ -34,6 +36,10 @@ const routes: Routes = [
         {
           path: 'uvs',
           component:UvComponent
+        },
+        {
+          path: 'detailsUv',
+          component:UvDetailsComponent
         },
       
       {
@@ -79,6 +85,10 @@ const routes: Routes = [
           {
             path: 'accueil',
             component:AccueilComponent
+          },
+          {
+            path: 'profileAutreEtudiant',
+            component: ProfileAutreEtudiantComponent
           },
           
          

@@ -16,6 +16,8 @@ import { ChatsComponent } from './Chat/chats/chats.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
 import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.component';
 import { SpecialiteComponent } from './specialite/specialite.component';
+import { UvDetailsComponent } from './uv-details/uv-details.component';
+import { ProfileAutreEtudiantComponent } from './profile-autre-etudiant/profile-autre-etudiant.component';
 
 
 @NgModule({
@@ -33,6 +35,8 @@ import { SpecialiteComponent } from './specialite/specialite.component';
     AccueilComponent,
     AcceuilEtudiantComponent,
     SpecialiteComponent,
+    UvDetailsComponent,
+    ProfileAutreEtudiantComponent,
   ],
   imports: [
     CommonModule,
