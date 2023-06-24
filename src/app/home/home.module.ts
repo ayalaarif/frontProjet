@@ -7,7 +7,7 @@ import { PreInscriptionComponent } from './pre-inscription/pre-inscription.compo
 import { SharedModule } from '../shared/shared.module';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
-import { TestComponent } from './test/test.component';
+
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { TestComponent } from './test/test.component';
     PreInscriptionComponent,
     ContactComponent,
     AboutComponent,
-    TestComponent
+  
   ],
   imports: [
     CommonModule,
