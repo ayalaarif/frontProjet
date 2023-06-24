@@ -18,6 +18,10 @@ import { AcceuilEtudiantComponent } from './acceuil-etudiant/acceuil-etudiant.co
 import { SpecialiteComponent } from './specialite/specialite.component';
 import { UvDetailsComponent } from './uv-details/uv-details.component';
 import { ProfileAutreEtudiantComponent } from './profile-autre-etudiant/profile-autre-etudiant.component';
+import { CoursAutreEtudiantComponent } from './cours-autre-etudiant/cours-autre-etudiant.component';
+import { LogementsComponent } from './logements/logements.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { AssociationsComponent } from './associations/associations.component';
 
 
 @NgModule({
@@ -37,6 +41,10 @@ import { ProfileAutreEtudiantComponent } from './profile-autre-etudiant/profile-
     SpecialiteComponent,
     UvDetailsComponent,
     ProfileAutreEtudiantComponent,
+    CoursAutreEtudiantComponent,
+    LogementsComponent,
+    RestaurantsComponent,
+    AssociationsComponent,
   ],
   imports: [
     CommonModule,

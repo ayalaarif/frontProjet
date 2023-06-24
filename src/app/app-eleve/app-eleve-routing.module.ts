@@ -18,6 +18,10 @@ import { UvComponent } from './uv/uv.component';
 import { SpecialiteComponent } from './specialite/specialite.component';
 import { UvDetailsComponent } from './uv-details/uv-details.component';
 import { ProfileAutreEtudiantComponent } from './profile-autre-etudiant/profile-autre-etudiant.component';
+import { CoursAutreEtudiantComponent } from './cours-autre-etudiant/cours-autre-etudiant.component';
+import { LogementsComponent } from './logements/logements.component';
+import { RestaurantsComponent } from './restaurants/restaurants.component';
+import { AssociationsComponent } from './associations/associations.component';
 
 const routes: Routes = [
   {
@@ -41,6 +45,18 @@ const routes: Routes = [
           path: 'detailsUv',
           component:UvDetailsComponent
         },
+        {
+          path: 'logements',
+          component:LogementsComponent
+        },
+        {
+          path: 'restaurants',
+          component:RestaurantsComponent
+        },
+        {
+          path: 'associations',
+          component:AssociationsComponent
+        },
       
       {
         path: '',
@@ -57,6 +73,10 @@ const routes: Routes = [
           {
             path: 'cours',
             component: CoursComponent
+          },
+          {
+            path: 'coursAutreEtudiant',
+            component:CoursAutreEtudiantComponent
           },
           {
             path: 'examens',

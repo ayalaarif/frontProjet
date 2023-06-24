@@ -1,68 +1,5 @@
 <div class="box-inn-sp">
-    <section class="pop-cour">
-        <div class="container com-sp pad-bot-70">
-            <div class="row">
-                <div class="con-title">
-                    <h2>Liste <span>Cours</span></h2>
-                </div>
-            </div>
-
-            <div class="row" style="display: center;">
-                <div class="search-form">
-                    <form>
-                        <div class="sf-type">
-                            <div class="sf-input">
-                                <input type="text" id="sf-box" placeholder="Rerchercher Cours"
-                                    (keyup.enter)="onInputSearch($event)">
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                <ng-container *ngIf="cours.length>0;else ElseIf">
-
-                    <div style="display: grid; grid-template-columns: auto auto; grid-gap: 10px;">
-                        <!--POPULAR COURSES-->
-                        <div class="home-top-cour" *ngFor="let c of cours">
-                            <!--POPULAR COURSES IMAGE-->
-                            <div class="col-md-3"> <img src="assets/images/course/subject.png" alt=""> </div>
-                            <!--POPULAR COURSES: CONTENT-->
-                            <div class="col-md-9 home-top-cour-desc">
-                                <!-- <a href="course-details.html"> -->
-                                <h3>{{c.libelle}}</h3>
-                                <!-- </a> -->
-                                <h4>Matière: {{c.enseignant.matiere.libelle}}</h4>
-                                <p>Description: {{c.description}}</p>
-                                <div class="hom-list-share">
-                                    <ul>
-                                        <li><a (click)="downloadFile(c.fichier.id,c.fichier.file)"><i
-                                                    class="fa fa-cloud-download" aria-hidden="true"></i> Télécharger</a>
-                                        </li>
-                                        <li><a (click)="openFile(c.fichier.id)"><i class="fa fa-eye"
-                                                    aria-hidden="true"></i>
-                                                Ouvrir </a> </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </ng-container>
-                <ng-template #ElseIf>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <h4 style="padding:1%"> Il n'y a pas encore de cours...</h4>
-                        </div>
-                    </div>
-                </ng-template>
-            </div>
-        </div>
-    </section>
+    
     <div class="udb-sec udb-cour-stat">
         <h4><img src="images/icon/db3.png" alt=""> Course Status</h4>
         <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.The point of using Lorem Ipsummaking it look like readable English.</p>
@@ -84,7 +21,8 @@
                         <td>IT45</td>
                         <td>Printemps 2023</td>
                         <td><span class="pro-user-act">En cours</span></td>
-                        <td><a href="sdb-course-view.html" class="">👀</a></td>
+
+                        <td ><a href="sdb-course-view.html" class="">👀</a></td>
                     </tr>
                     <tr>
                         <td>02</td>
