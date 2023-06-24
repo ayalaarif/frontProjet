@@ -10,10 +10,7 @@ import { ListElevesComponent } from './Elèves/list-eleves/list-eleves.component
 import { ListParentsComponent } from './Elèves/list-parents/list-parents.component';
 import { ModifierEleveComponent } from './Elèves/modifier-eleve/modifier-eleve.component';
 import { ValiderPreinscriptionComponent } from './Elèves/valider-preinscription/valider-preinscription.component';
-import { AfficherEnseignantComponent } from './Enseignants/afficher-enseignant/afficher-enseignant.component';
-import { AjouterEnseignantComponent } from './Enseignants/ajouter-enseignant/ajouter-enseignant.component';
-import { ListEnseignantsComponent } from './Enseignants/list-enseignants/list-enseignants.component';
-import { ModifierEnseignantComponent } from './Enseignants/modifier-enseignant/modifier-enseignant.component';
+
 import { AfficherGroupeComponent } from './Groupes/afficher-groupe/afficher-groupe.component';
 import { AjouterGroupeComponent } from './Groupes/ajouter-groupe/ajouter-groupe.component';
 import { ListGroupeComponent } from './Groupes/list-groupe/list-groupe.component';
@@ -24,18 +21,10 @@ import { AfficherNiveauComponent } from './niveaux/afficher-niveau/afficher-nive
 import { AjouterNiveauComponent } from './niveaux/ajouter-niveau/ajouter-niveau.component';
 import { ListNiveauComponent } from './niveaux/list-niveau/list-niveau.component';
 import { ModifierNiveauComponent } from './niveaux/modifier-niveau/modifier-niveau.component';
-import { AjouterSalleComponent } from './Salles/ajouter-salle/ajouter-salle.component';
-import { ListSalleComponent } from './Salles/list-salle/list-salle.component';
-import { ModifierSalleComponent } from './Salles/modifier-salle/modifier-salle.component';
+
 import { AfficherEnseignantsComponent } from './Groupes/afficher-enseignants/afficher-enseignants.component';
 import { AffecterEnseignantComponent } from './Groupes/affecter-enseignant/affecter-enseignant.component';
-import { AjouterEmlpoiTempsComponent } from './emlpoi/ajouter-emlpoi-temps/ajouter-emlpoi-temps.component';
-import { AfficherEmploiComponent } from './emploi/afficher-emploi/afficher-emploi.component';
-import { ListEmploisComponent } from './emploi/list-emplois/list-emplois.component';
-import { ModifierEmploiComponent } from './emploi/modifier-emploi/modifier-emploi.component';
-import { ListePunitionsComponent } from './punitions/liste-punitions/liste-punitions.component';
-import { AfficherPunitionComponent } from './punitions/afficher-punition/afficher-punition.component';
-import { ValiderPunitionComponent } from './punitions/valider-punition/valider-punition.component';
+
 import { AjouterAnneeComponent } from './anneeScolaire/ajouter-annee/ajouter-annee.component';
 import { ListeAnneesComponent } from './anneeScolaire/liste-annees/liste-annees.component';
 import { ModifierAnneeComponent } from './anneeScolaire/modifier-annee/modifier-annee.component';
@@ -47,9 +36,7 @@ import { AjouterEventComponent } from './events/ajouter-event/ajouter-event.comp
 import { ListeEventsComponent } from './events/liste-events/liste-events.component';
 import { AfficherEventComponent } from './events/afficher-event/afficher-event.component';
 import { ModifierEventComponent } from './events/modifier-event/modifier-event.component';
-import { AjouterBulletinComponent } from './Bulletins/ajouter-bulletin/ajouter-bulletin.component';
-import { ListeBulletinsComponent } from './Bulletins/liste-bulletins/liste-bulletins.component';
-import { AfficherBulletinComponent } from './Bulletins/afficher-bulletin/afficher-bulletin.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -127,24 +114,8 @@ const routes: Routes = [
         component: AfficherParentComponent
       },
 
-      //Enseignant components 
-
-      {
-        path: 'ajouterEnseignant',
-        component: AjouterEnseignantComponent
-      },
-      {
-        path: 'listEnseignants',
-        component: ListEnseignantsComponent
-      },
-      {
-        path: 'modifierEnseignant/:id',
-        component: ModifierEnseignantComponent
-      },
-      {
-        path: 'afficherEnseignant/:id',
-        component: AfficherEnseignantComponent
-      },
+      
+      
 
       //Matière components 
 
@@ -205,51 +176,9 @@ const routes: Routes = [
       },
 
 
-      //Salle components 
+      
 
-      {
-        path: 'ajouterSalle',
-        component: AjouterSalleComponent
-      },
-      {
-        path: 'listSalles',
-        component: ListSalleComponent
-      },
-      {
-        path: 'modifierSalle/:id',
-        component: ModifierSalleComponent
-      },
-      //Emploi
-      {
-        path: 'ajouterEmploiTemps',
-        component: AjouterEmlpoiTempsComponent
-      },
-      {
-        path: 'afficherEmploi/:id',
-        component: AfficherEmploiComponent
-      },
-      {
-        path: 'ListeEmplois',
-        component: ListEmploisComponent
-      },
-      {
-        path: 'modifierEmploi/:id',
-        component: ModifierEmploiComponent
-      },
-
-      //Punitions
-      {
-        path: 'punitions',
-        component: ListePunitionsComponent
-      },
-      {
-        path: 'afficherPunition/:id',
-        component: AfficherPunitionComponent
-      },
-      {
-        path: 'validerPunition/:id',
-        component: ValiderPunitionComponent
-      },
+      
 
       //Events:
       {
@@ -268,16 +197,9 @@ const routes: Routes = [
         path: 'modifierEvent/:id',
         component: ModifierEventComponent
       },
-      //Bulletin components 
+      
 
-      {
-        path: 'ajouterBulletin',
-        component:AjouterBulletinComponent
-      },
-      {
-        path: 'listeBulletins',
-        component: ListeBulletinsComponent
-      },
+      
       
       
 
@@ -287,10 +209,7 @@ const routes: Routes = [
 
     ]
   },
-  {
-    path: 'afficherBulletin/:id',
-    component: AfficherBulletinComponent
-  }
+ 
 
 ];
 

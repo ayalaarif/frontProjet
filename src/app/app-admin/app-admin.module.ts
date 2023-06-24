@@ -12,17 +12,13 @@ import { AjouterNiveauComponent } from './niveaux/ajouter-niveau/ajouter-niveau.
 import { ListNiveauComponent } from './niveaux/list-niveau/list-niveau.component';
 import { AjouterGroupeComponent } from './Groupes/ajouter-groupe/ajouter-groupe.component';
 import { ListGroupeComponent } from './Groupes/list-groupe/list-groupe.component';
-import { AjouterSalleComponent } from './Salles/ajouter-salle/ajouter-salle.component';
-import { ListSalleComponent } from './Salles/list-salle/list-salle.component';
-import { AjouterEnseignantComponent } from './Enseignants/ajouter-enseignant/ajouter-enseignant.component';
-import { ListEnseignantsComponent } from './Enseignants/list-enseignants/list-enseignants.component';
+
 import { FormsModule } from '@angular/forms';
-import { ModifierEnseignantComponent } from './Enseignants/modifier-enseignant/modifier-enseignant.component';
-import { AfficherEnseignantComponent } from './Enseignants/afficher-enseignant/afficher-enseignant.component';
+
 import { ModifierEleveComponent } from './Elèves/modifier-eleve/modifier-eleve.component';
 import { AfficherEleveComponent } from './Elèves/afficher-eleve/afficher-eleve.component';
 import { AfficherParentComponent } from './Elèves/afficher-parent/afficher-parent.component';
-import { ModifierSalleComponent } from './Salles/modifier-salle/modifier-salle.component';
+
 import { AfficherNiveauComponent } from './niveaux/afficher-niveau/afficher-niveau.component';
 import { ModifierNiveauComponent } from './niveaux/modifier-niveau/modifier-niveau.component';
 import { ModifierGroupeComponent } from './Groupes/modifier-groupe/modifier-groupe.component';
@@ -31,13 +27,7 @@ import { ValiderPreinscriptionComponent } from './Elèves/valider-preinscription
 import { DemandePreinscriptionComponent } from './Elèves/demande-preinscription/demande-preinscription.component';
 import { AfficherEnseignantsComponent } from './Groupes/afficher-enseignants/afficher-enseignants.component';
 import { AffecterEnseignantComponent } from './Groupes/affecter-enseignant/affecter-enseignant.component';
-import { AjouterEmlpoiTempsComponent } from './emlpoi/ajouter-emlpoi-temps/ajouter-emlpoi-temps.component';
-import { AfficherEmploiComponent } from './emploi/afficher-emploi/afficher-emploi.component';
-import { ListEmploisComponent } from './emploi/list-emplois/list-emplois.component';
-import { ModifierEmploiComponent } from './emploi/modifier-emploi/modifier-emploi.component';
-import { ListePunitionsComponent } from './punitions/liste-punitions/liste-punitions.component';
-import { AfficherPunitionComponent } from './punitions/afficher-punition/afficher-punition.component';
-import { ValiderPunitionComponent } from './punitions/valider-punition/valider-punition.component';
+
 import { AjouterAnneeComponent } from './anneeScolaire/ajouter-annee/ajouter-annee.component';
 import { ListeAnneesComponent } from './anneeScolaire/liste-annees/liste-annees.component';
 import { ModifierAnneeComponent } from './anneeScolaire/modifier-annee/modifier-annee.component';
@@ -50,9 +40,6 @@ import { AjouterEventComponent } from './events/ajouter-event/ajouter-event.comp
 import { ListeEventsComponent } from './events/liste-events/liste-events.component';
 import { ModifierEventComponent } from './events/modifier-event/modifier-event.component';
 import { AfficherEventComponent } from './events/afficher-event/afficher-event.component';
-import { AjouterBulletinComponent } from './Bulletins/ajouter-bulletin/ajouter-bulletin.component';
-import { ListeBulletinsComponent } from './Bulletins/liste-bulletins/liste-bulletins.component';
-import { AfficherBulletinComponent } from './Bulletins/afficher-bulletin/afficher-bulletin.component';
 
 @NgModule({
   declarations: [
@@ -66,16 +53,11 @@ import { AfficherBulletinComponent } from './Bulletins/afficher-bulletin/affiche
     ListNiveauComponent,
     AjouterGroupeComponent,
     ListGroupeComponent,
-    AjouterSalleComponent,
-    ListSalleComponent,
-    AjouterEnseignantComponent,
-    ListEnseignantsComponent,
-    ModifierEnseignantComponent,
-    AfficherEnseignantComponent,
+    
     ModifierEleveComponent,
     AfficherEleveComponent,
     AfficherParentComponent,
-    ModifierSalleComponent,
+   
     AfficherNiveauComponent,
     ModifierNiveauComponent,
     ModifierGroupeComponent,
@@ -84,13 +66,7 @@ import { AfficherBulletinComponent } from './Bulletins/afficher-bulletin/affiche
     DemandePreinscriptionComponent,
     AfficherEnseignantsComponent,
     AffecterEnseignantComponent,
-    AjouterEmlpoiTempsComponent,
-    AfficherEmploiComponent,
-    ListEmploisComponent,
-    ModifierEmploiComponent,
-    ListePunitionsComponent,
-    AfficherPunitionComponent,
-    ValiderPunitionComponent,
+    
     AjouterAnneeComponent,
     ListeAnneesComponent,
     ModifierAnneeComponent,
@@ -103,9 +79,7 @@ import { AfficherBulletinComponent } from './Bulletins/afficher-bulletin/affiche
     ListeEventsComponent,
     ModifierEventComponent,
     AfficherEventComponent,
-    AjouterBulletinComponent,
-    ListeBulletinsComponent,
-    AfficherBulletinComponent
+    
    
   ],
   imports: [

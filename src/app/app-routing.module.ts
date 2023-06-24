@@ -4,8 +4,7 @@ import { NotFound404Component } from './shared/components/not-found404/not-found
 import { AdminGuard } from './shared/guards/admin.guard';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { EleveGuard } from './shared/guards/eleve.guard';
-import { EnseignantGuard } from './shared/guards/enseignant.guard';
-import { ParentGuard } from './shared/guards/parent.guard';
+
 
 const routes: Routes = [
   {
@@ -25,18 +24,8 @@ const routes: Routes = [
     loadChildren: () => import('./app-eleve/app-eleve.module').then(mod => mod.AppEleveModule)
 
   },
-  {
-    path: 'enseignant',
-    canActivate:[AuthGuard, EnseignantGuard],
-    loadChildren: () => import('./app-enseignant/app-enseignant.module').then(mod => mod.AppEnseignantModule)
-
-  },
-  {
-    path: 'parent',
-    canActivate:[AuthGuard, ParentGuard],
-    loadChildren: () => import('./app-parent/app-parent.module').then(mod => mod.AppParentModule)
-
-  },
+  
+  
   {
     path: '**',
     component: NotFound404Component

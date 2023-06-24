@@ -1,0 +1,11 @@
+.pg-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.new-con {
+    text-align: center;
+    margin: 10px;
+}
