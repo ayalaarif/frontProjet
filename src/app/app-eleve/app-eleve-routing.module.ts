@@ -35,6 +35,11 @@ const routes: Routes = [
           path: 'uvs',
           component:UvComponent
         },
+        {
+          path: 's',
+          component:UvComponent
+        },
+        
       
       {
         path: '',
